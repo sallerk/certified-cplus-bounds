@@ -15,6 +15,17 @@ Requires: python-flint (ARB bindings) and numpy.
 import json, os, re, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+CERTS = os.path.join(HERE, 'certificates')
+FUNCS = [os.path.join(HERE, 'functions', d) for d in ('lp', 'sdp', 'dual')]
+
+
+def resolve(name):
+    """Find a coefficient file by bare name, wherever it lives under functions/."""
+    for d in [HERE] + FUNCS:
+        p = os.path.join(d, name)
+        if os.path.exists(p):
+            return p
+    raise SystemExit('cannot find coefficient file: %s' % name)
 
 
 def published_records():
@@ -34,7 +45,7 @@ def published_records():
 
 
 def run(script, args):
-    out = subprocess.run([sys.executable, os.path.join(HERE, script)] + args,
+    out = subprocess.run([sys.executable, os.path.join(CERTS, script)] + args,
                          capture_output=True, text=True, cwd=HERE).stdout
     m = re.findall(r'(?:CERTIFIED\s*>=|C_\+\([^)]*\)\s*>=)\s*([0-9]+\.[0-9]+)', out)
     return float(m[-1]) if m else None
@@ -47,8 +58,8 @@ def certify(row):
     if sdp >= lp:
         f = row['sdp_file']
         c = re.search(r'_c([0-9.]+)\.txt$', f)
-        return 'SDP', run('cplus_sdp_cert.py', [f, repr(A), c.group(1) if c else '1.0'])
-    return 'LP', run('cplus_certA.py', [row['lp_file']])
+        return 'SDP', run('cplus_sdp_cert.py', [resolve(f), repr(A), c.group(1) if c else '1.0'])
+    return 'LP', run('cplus_certA.py', [resolve(row['lp_file'])])
 
 
 def main():

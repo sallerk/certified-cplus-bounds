@@ -1,5 +1,7 @@
 # Certified lower bounds for `C_+(A)`
 
+https://github.com/sallerk/certified-cplus-bounds
+
 This package contains everything needed to check, independently, that
 
 ```
@@ -48,8 +50,8 @@ certificate programs import only these and the standard library.
 ## Verify one row
 
 ```
-python cplus_certA.py testfunction_A28.0_r27raw.txt              # LP functions
-python cplus_sdp_cert.py sdpfin_A28.0_d42_c1.2.txt 28 1.2     # SDP functions
+python certificates/cplus_certA.py functions/lp/testfunction_A28.0_r27raw.txt        # LP function
+python certificates/cplus_sdp_cert.py functions/sdp/sdpfin_A28.0_d42_c1.2.txt 28 1.2  # SDP function
 ```
 
 Each prints its intermediate enclosures and then the certified value. A run
@@ -88,8 +90,8 @@ The certificates also refuse false claims. `cplus_dual_cert.py` takes a target
 and declines if it cannot prove it, reporting the subinterval where it failed:
 
 ```
-python cplus_dual_cert.py multiplier_A28.txt 1.1144    # certifies
-python cplus_dual_cert.py multiplier_A28.txt 1.1140    # correctly refuses
+python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1144   # certifies
+python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1140   # correctly refuses
 ```
 
 ## Comparing against the published table
@@ -106,22 +108,21 @@ Comparing against a single fixed column would misstate the comparison on 28 rows
 
 ## Files
 
-| file | contents |
+| path | contents |
 |---|---|
-| `note.html` | the short note; open in a browser |
-| `EXTREMAL2.md` | the full method and the complete certified table |
-| `UPPER.md` | certified **upper** bounds, and what they say about the remaining gap |
-| `RECORD_CHECK.md` | the literature check confirming the record still stood, and what could not be checked |
-| `SDP.md` | the semidefinite formulation, its calibration, and where it fails to reproduce published values |
-| `cplus_certA.py` | certificate for band-limited (LP) test functions |
-| `cplus_sdp_cert.py` | certificate for Gaussian-times-polynomial (SDP) test functions |
-| `cplus_dual_cert.py` | certificate for the dual multipliers, giving upper bounds |
-| `verify_all.py` | re-certifies and checks every row |
-| `testfunction_A*.txt` | LP test functions, one per row |
-| `sdpfin_A*.txt` | SDP test functions, one per row |
-| `multiplier_A*.txt` | dual multipliers for the upper bounds |
-| `cqh_table1.txt` | the published records |
-| `final_table.json` | the consolidated results |
+| `verify_all.py` | re-certifies and checks every row; start here |
+| `final_table.json` | the consolidated results, one record per row |
+| `cqh_table1.txt` | the published records being compared against |
+| `full_verify.txt` | log of a complete 68-row run |
+| `certificates/` | the three ARB certificate programs |
+| `functions/lp/` | band-limited test functions, one per row |
+| `functions/sdp/` | Gaussian-times-polynomial test functions, one per row |
+| `functions/dual/` | dual multipliers, giving the upper bounds |
+| `docs/note.html` | the short note; open in a browser |
+| `docs/EXTREMAL2.md` | full method and the complete certified table |
+| `docs/UPPER.md` | certified upper bounds, and what they say about the remaining gap |
+| `docs/RECORD_CHECK.md` | the literature check, and what could not be checked |
+| `docs/SDP.md` | the semidefinite formulation and its calibration |
 
 ## What is and is not new
 
