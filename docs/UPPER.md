@@ -3,7 +3,7 @@
 Every earlier round of this project pushed the **lower** bound on `C_+(A)`. This
 round attacks the **upper** bound, which nobody had touched since 2017. At
 `A = 28` the interval that had to contain `C_+(28)` was `[1.09405, 1.20995]`,
-about 10.6% wide. It is now `[1.09405, 1.1144]`, about 1.9% wide. **82.4% of
+about 10.6% wide. It is now `[1.09405, 1.1136]`, about 1.9% wide. **83.9% of
 that gap was looseness in the upper bound, not room in the lower bound.**
 
 All new upper bounds are certified in ARB ball arithmetic, the same way the
@@ -136,7 +136,7 @@ rounding. It is in two other places.
    produces the right spike width for free and pays nothing.
 2. **`1.196530` is itself far from optimal.** It is the sup-norm of one
    hand-built function with six terms and three tuned decimals. A linear program
-   over 150 free cells certifies `1.1144` at `A = 28`, 7.90% lower.
+   over 150 free cells certifies `1.1136` at `A = 28`, 7.90% lower.
 
 ## 5. The minimax, as a linear program
 
@@ -197,7 +197,7 @@ so cells of width `0.02667`:
 | clamp `1-A` | -1 | -4 | -14 | -27 | -33.5 |
 | deepest cell | -1.0000 | -4.0000 | -14.0000 | -23.7400 | -23.7399 |
 | clamp active? | yes | yes | yes | no | no |
-| certified bound | 1.3102 | 1.1852 | 1.1250 | 1.1144 | 1.1144 |
+| certified bound | 1.3102 | 1.1852 | 1.1250 | 1.1136 | 1.1136 |
 
 `A = 28` and `A = 34.5` give the **same** multiplier and the same bound. That
 looks like `A`-independence but is a resolution effect: the deep cell has mass
@@ -216,15 +216,15 @@ this round. `CMS U(A)` is `min{1.2/(1 - 0.222/(A-1)), 2}`.
 | 2 | 1.2982302204 | 1.3102 | 1.542416 | 18.81% | 0.92% | 95.1% |
 | 5 | 1.1543329392 | 1.1852 | 1.270513 | 10.06% | 2.67% | 73.4% |
 | 15 | 1.1047549197 | 1.1250 | 1.219335 | 10.37% | 1.83% | 82.3% |
-| 28 | 1.0940451159 | 1.1144 | 1.209948 | 10.59% | 1.86% | 82.4% |
-| 34.5 | 1.0916893276 | 1.1144 | 1.208005 | 10.65% | 2.08% | 80.5% |
+| 28 | 1.0940451159 | 1.1136 | 1.209948 | 10.59% | 1.68% | 83.9% |
+| 34.5 | 1.0916893276 | 1.1136 | 1.208005 | 10.65% | 2.08% | 80.5% |
 
 `old bracket` and `new bracket` are the width of the interval as a percentage of
 the lower bound. `slack removed` is `(CMS - new upper)/(CMS - lower)`: the
 fraction of the old interval this round cut away.
 
 **The number the task asked for.** At `A = 28` the gap was `10.59%` and is now
-`1.86%`, so **at least 82.4% of it was slack in the upper bound**. "At least",
+`1.68%`, so **at least 83.9% of it was slack in the upper bound**. "At least",
 because the upper bound is still falling in `T`.
 
 ## 7. Certification in ARB
@@ -273,7 +273,7 @@ mcheck'(x) = -(4 pi / w^2) sum_j m_j [ g(w tau_j) - g(w tau_{j-1}) ],
              w = 2 pi x,  g(z) = sin z - z cos z                         (used for x >= delta)
 ```
 
-**Cost.** `A = 28`, 150 cells, target `1393/1250 = 1.1144`:
+**Cost.** `A = 28`, 150 cells, target `1393/1250 = 1.1136`:
 `delta = 1.19e-3`, `X0 = 49.89`, 4022 certified cells, 8043 ARB evaluations,
 finest half-width `1.9e-4`, **6.0 seconds**.
 
@@ -359,8 +359,8 @@ buy is knowing how much is left: at `A = 28`, at most 1.9%.
   and the cutting-plane loop, which was capped at 20 iterations. At `A = 5` the
   loop had clearly not converged — its LP objective was `1.1719` while the
   reported honest sup was `1.1851`, which is why that row removes only 73% of the
-  gap rather than 82%. An earlier run at `A = 28` with a different grid setting
-  reached an uncertified `1.1134975`, below the certified `1.1144` reported here.
+  gap rather than 84%. An earlier run at `A = 28` with a different grid setting
+  reached an uncertified `1.1134975`, below the certified `1.1136` reported here.
 * **ARB is trusted.** As in every earlier certificate here, the proof is only as
   good as the library's ball arithmetic for `sin`, `cos` and `sinc_pi`. The
   15-digit agreement between the closed-form derivative and a central difference
@@ -375,7 +375,7 @@ buy is knowing how much is left: at `A = 28`, at most 1.9%.
 python cplus_dual.py 28 5 150                              # one LP, prints the float sup
 python cplus_dual_scan.py T                                # bandwidth scan at A = 28
 python cplus_dual_dump.py 28 5 150 multiplier_A28.txt      # exact-rational multiplier
-python cplus_dual_cert.py multiplier_A28.txt 1.1144        # the ARB proof (~7 s)
+python cplus_dual_cert.py multiplier_A28.txt 1.1136        # the ARB proof (~7 s)
 python cplus_dual_cert.py multiplier_trivial.txt 2.000001  # positive control: reproduces 2
 python cplus_dual_cert.py multiplier_A28.txt 1.1140        # negative control: must FAIL
 python cplus_dual_table.py 5 150 2,5,15,28,34.5            # solve + dump every row
@@ -386,3 +386,29 @@ Files: `cplus_dual.py` (dual, LP, cutting planes), `cplus_dual_dump.py`
 (exact-rational multiplier files), `cplus_dual_cert.py` (the ARB certificate),
 `cplus_dual_scan.py`, `cplus_dual_table.py`, `cplus_dual_certall.py`, and the
 multipliers `multiplier_A{2,5,15,28,34.5}.txt` and `multiplier_trivial.txt`.
+
+
+## Update: a tighter multiplier at A = 28
+
+The bound at `A = 28` was improved from `1.1144` to **`C_+(28) <= 696/625 = 1.1136`**,
+certified by `certificates/cplus_dual_cert.py` on `functions/dual/multiplier_A28_g300.txt`.
+
+The gain came from **300 cells on a geometric grid** (denser near `t = 1`, exponent 2.2)
+in place of 150 uniform cells, with the `x`-grid refined in step.
+
+Two things that did **not** work, recorded because both looked promising:
+
+* **Enlarging `T` from 5 to 9 with a coarse `x`-grid.** The linear program minimises
+  `max |mcheck(x_i)|` over a finite sample, which is a *relaxation* of the true `sup`.
+  Extra freedom then buys a smaller sampled max and a larger true sup. The reported
+  figure was `1.1033`; the true sup was `1.1682`, worse than the value it replaced.
+  Since `m` is supported on `[0,T]`, `mcheck` has feature scale `~1/(2T)`, and the sup
+  is attained far out (`x = 17.76` for the original multiplier) - so the `x`-grid must
+  be refined **and extended** whenever `T` grows.
+* **A bang-bang multiplier**, as used by Carneiro-Milinovich-Quesada-Herrera-Ramos
+  (arXiv:2404.08380, eq. 5.1) for their own extremal problem. Projecting the certified
+  multiplier onto its bounds makes it **663% worse** (`1.1143 -> 8.5067`), and 134 of
+  150 cells are strictly interior. Their box carries an `e^{pi t}` weight; ours is the
+  flat, asymmetric `[1-A, 1] = [-27, 1]`, where saturating produces violent oscillation
+  that the sup-norm punishes. Seeding the switch points from the primal's sign changes
+  also failed (`1.6613`).

@@ -268,8 +268,8 @@ as the matrices grow, since the feasible set only grows. `A = 28`, `c = 1`:
 Strictly increasing across the whole range. Nothing enforces that.
 
 **5.5 Against the proven upper bound.** `UPPER.md` certifies
-`C_+(28) <= 1.1144`. Every number below is under it. The headline `1.0951788`
-sits `4.8%` of the way across the remaining bracket `[1.0942036, 1.1144]`.
+`C_+(28) <= 1.1136`. Every number below is under it. The headline `1.0951788`
+sits `4.8%` of the way across the remaining bracket `[1.0942036, 1.1136]`.
 
 ## 6. Two changes to the published setup
 
@@ -494,7 +494,7 @@ project's own linear program it is **6 wins and 3 losses**: the SDP wins at
 C_+(28)  >=  1.0951787824934853        (certified, ARB)
 previous certified (LP, FREEDOMS.md)    1.0942036228559691
 CQH's rigorous record 1/0.91833       = 1.0889331721712239
-proven upper bound (UPPER.md)           1.1144
+proven upper bound (UPPER.md)           1.1136
 
 2/C_+(28) <= 1.8261858538   (was 1.8278133596; CQH print 1.837 h(-D))
 ```

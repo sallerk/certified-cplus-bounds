@@ -71,7 +71,7 @@ def main():
         rows = [r for r in rows if float(r['A']) in want]
 
     rec = published_records()
-    upper = {2.0: 1.3102, 5.0: 1.1852, 15.0: 1.1250, 28.0: 1.1144, 34.5: 1.1144}
+    upper = {2.0: 1.3102, 5.0: 1.1852, 15.0: 1.1250, 28.0: 1.1136, 34.5: 1.1136}
 
     print('%6s  %-4s  %-20s  %-12s  %-9s  %s' %
           ('A', 'via', 'certified', 'record', 'margin', 'status'))

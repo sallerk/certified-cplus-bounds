@@ -567,7 +567,7 @@ winning published column.
 | 23.0 | 1.0845 | 1.0897 | **1.0905** | 1.0905 | PW | 1.0968809003 | 1.0979658741 | **1.0979658741** | +0.6846% | SDP |
 | 23.5 | 1.0841 | 1.0893 | **1.0903** | 1.0903 | PW | 1.0965619548 | 1.0976871718 | **1.0976871718** | +0.6775% | SDP |
 | 24.0 | 1.0838 | 1.0890 | **1.0901** | 1.0901 | PW | 1.0962555580 | 1.0973558414 | **1.0973558414** | +0.6656% | SDP |
-| 24.5 | 1.0835 | 1.0886 | **1.0900** | 1.0900 | PW | 1.0959631055 | 1.0972829464 | **1.0972829464** | +0.6682% | SDP |
+| 24.5 | 1.0835 | 1.0886 | **1.0900** | 1.0900 | PW | 1.0959631055 | 1.0972829464 | **1.0972829464** | +0.6684% | SDP |
 | 25.0 | 1.0832 | 1.0883 | **1.0898** | 1.0898 | PW | 1.0956811707 | 1.0970508460 | **1.0970508460** | +0.6653% | SDP |
 | 25.5 | 1.0830 | 1.0880 | **1.0896** | 1.0896 | PW | 1.0954114575 | 1.0967874328 | **1.0967874328** | +0.6596% | SDP |
 | 26.0 | 1.0827 | 1.0876 | **1.0895** | 1.0895 | PW | 1.0951512934 | 1.0963380206 | **1.0963380206** | +0.6276% | SDP |
@@ -631,7 +631,7 @@ same amount, so the crossing moves.
 LP  certified   1.0942039167907789
 SDP certified   1.0951787824934853      <- the row winner
 CQH's rigorous record 1/0.91833 = 1.0889331721712239
-certified upper bound (UPPER.md) 1.1144
+certified upper bound (UPPER.md) 1.1136
 margin over the record          +0.5766%
 ```
 
@@ -813,7 +813,7 @@ needs its own output file (`LPOUT`, `SDPOUT`, `SDP2OUT`).
   arXiv:2411.05095) that still quotes it, not from a systematic check of everything
   published since.
 - **Not the sharp constant.** This is a lower bound. The certified bracket for
-  `C_+(28)` is now `[1.0951787825, 1.1144]`, the upper end from `UPPER.md`. The
+  `C_+(28)` is now `[1.0951787825, 1.1136]`, the upper end from `UPPER.md`. The
   flatness in `B` suggests the bandlimited family is close to exhausted, but that
   is an observation, not an argument.
 - **Not a new method.** Bandlimited test functions for this problem are CQH's own
