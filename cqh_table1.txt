@@ -1,0 +1,103 @@
+CQH Table 1 - published lower bounds for C_+(A)
+
+Source: Andres Chirre and Emily Quesada-Herrera, "Fourier optimization and quadratic
+forms", arXiv:2012.07781v2, Q. J. Math. 73 (2022) 539-577. Table 1, page 26 of the
+arXiv PDF. Extracted with `pdftotext -layout` from https://arxiv.org/pdf/2012.07781v2
+on 2026-08-26. Read from the PDF, not from a summary. All 68 rows present.
+
+The problem: C_+(A) = sup over even real F in L^1 of
+   [ F(0) - A * int_{|t|>1} (Fhat(t))_+ dt ] / ||F||_1
+Carneiro-Milinovich-Soundararajan, arXiv:1708.04122, Extremal Problem 2, eq. (1.3).
+
+COLUMN MEANINGS (CQH Section 7). All three columns are LOWER bounds on the same
+quantity C_+(A). They differ only in which family of test functions was searched.
+
+  F82   Semidefinite programming with F(x) = P(x) * exp(-x^2), deg P <= 82.
+        Computed for CQH by David de Laat, by the method of Chirre-Pereira-de Laat
+        (reference [7] in CQH), Section 4.
+  F122  The same construction with deg P <= 122.
+  PW    Bandlimited (Paley-Wiener) test function, CQH eq. (7.1)-(7.2):
+            F(x) = H(x/lambda),
+            H(x) = cos(2 pi x) [ a1/(1-16x^2) + a2/(9-16x^2) + a3/(25-16x^2) ].
+        The four parameters a1, a2, a3, lambda for each row are CQH's Table 2.
+  BEST  max(F82, F122, PW). This is the published record for that row.
+  WIN   which column attains BEST.
+
+WHICH COLUMN WINS VARIES BY ROW. F122 >= F82 in every row, so the SDP record is
+always F122. F122 and PW cross at A = 21.0, where both equal 1.0914. For
+1.5 <= A <= 20.5 the SDP column wins; for A >= 21.5 the bandlimited column wins.
+Example: at A = 8.5 SDP wins (1.1166 vs 1.1073); at A = 25.0 PW wins
+(1.0898 vs 1.0883).
+
+CAVEAT on the A = 1.0 row: CMS Theorem 1.2 gives C_+(1) = 2 exactly, so the
+1.9602 there is not a record - CQH include the row only for comparison.
+
+A       F82      F122     PW       BEST     WIN
+1.0     1.9016   1.9307   1.9602   1.9602   PW
+1.5     1.4070   1.4089   1.3430   1.4089   F122
+2.0     1.2900   1.2933   1.2417   1.2933   F122
+2.5     1.2346   1.2378   1.1972   1.2378   F122
+3.0     1.2025   1.2049   1.1719   1.2049   F122
+3.5     1.1807   1.1830   1.1555   1.1830   F122
+4.0     1.1653   1.1673   1.1439   1.1673   F122
+4.5     1.1538   1.1555   1.1355   1.1555   F122
+5.0     1.1448   1.1467   1.1290   1.1467   F122
+5.5     1.1378   1.1396   1.1239   1.1396   F122
+6.0     1.1320   1.1339   1.1198   1.1339   F122
+6.5     1.1271   1.1294   1.1164   1.1294   F122
+7.0     1.1228   1.1255   1.1136   1.1255   F122
+7.5     1.1191   1.1222   1.1112   1.1222   F122
+8.0     1.1159   1.1192   1.1091   1.1192   F122
+8.5     1.1131   1.1166   1.1073   1.1166   F122
+9.0     1.1107   1.1142   1.1058   1.1142   F122
+9.5     1.1086   1.1121   1.1044   1.1121   F122
+10.0    1.1067   1.1101   1.1031   1.1101   F122
+10.5    1.1049   1.1084   1.1020   1.1084   F122
+11.0    1.1033   1.1068   1.1010   1.1068   F122
+11.5    1.1019   1.1054   1.1001   1.1054   F122
+12.0    1.1005   1.1041   1.0993   1.1041   F122
+12.5    1.0992   1.1030   1.0985   1.1030   F122
+13.0    1.0980   1.1019   1.0978   1.1019   F122
+13.5    1.0969   1.1009   1.0972   1.1009   F122
+14.0    1.0959   1.1000   1.0966   1.1000   F122
+14.5    1.0949   1.0992   1.0960   1.0992   F122
+15.0    1.0940   1.0984   1.0955   1.0984   F122
+15.5    1.0931   1.0976   1.0951   1.0976   F122
+16.0    1.0922   1.0969   1.0946   1.0969   F122
+16.5    1.0915   1.0962   1.0942   1.0962   F122
+17.0    1.0907   1.0956   1.0938   1.0956   F122
+17.5    1.0900   1.0950   1.0935   1.0950   F122
+18.0    1.0893   1.0944   1.0931   1.0944   F122
+18.5    1.0887   1.0938   1.0928   1.0938   F122
+19.0    1.0881   1.0933   1.0925   1.0933   F122
+19.5    1.0875   1.0928   1.0922   1.0928   F122
+20.0    1.0870   1.0923   1.0919   1.0923   F122
+20.5    1.0865   1.0918   1.0917   1.0918   F122
+21.0    1.0860   1.0914   1.0914   1.0914   F122
+21.5    1.0856   1.0909   1.0912   1.0912   PW
+22.0    1.0852   1.0905   1.0909   1.0909   PW
+22.5    1.0848   1.0901   1.0907   1.0907   PW
+23.0    1.0845   1.0897   1.0905   1.0905   PW
+23.5    1.0841   1.0893   1.0903   1.0903   PW
+24.0    1.0838   1.0890   1.0901   1.0901   PW
+24.5    1.0835   1.0886   1.0900   1.0900   PW
+25.0    1.0832   1.0883   1.0898   1.0898   PW
+25.5    1.0830   1.0880   1.0896   1.0896   PW
+26.0    1.0827   1.0876   1.0895   1.0895   PW
+26.5    1.0825   1.0873   1.0893   1.0893   PW
+27.0    1.0823   1.0871   1.0892   1.0892   PW
+27.5    1.0820   1.0868   1.0890   1.0890   PW
+28.0    1.0818   1.0865   1.0889   1.0889   PW
+28.5    1.0816   1.0863   1.0888   1.0888   PW
+29.0    1.0814   1.0860   1.0886   1.0886   PW
+29.5    1.0812   1.0858   1.0885   1.0885   PW
+30.0    1.0810   1.0856   1.0884   1.0884   PW
+30.5    1.0809   1.0854   1.0883   1.0883   PW
+31.0    1.0807   1.0852   1.0882   1.0882   PW
+31.5    1.0805   1.0850   1.0881   1.0881   PW
+32.0    1.0804   1.0848   1.0880   1.0880   PW
+32.5    1.0802   1.0847   1.0879   1.0879   PW
+33.0    1.0800   1.0845   1.0878   1.0878   PW
+33.5    1.0799   1.0844   1.0877   1.0877   PW
+34.0    1.0797   1.0842   1.0876   1.0876   PW
+34.5    1.0796   1.0841   1.0875   1.0875   PW
