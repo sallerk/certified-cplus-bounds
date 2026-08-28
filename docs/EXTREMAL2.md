@@ -155,7 +155,7 @@ claim stand.
 **Consequence.** In CQH Corollary 5 the constant is `2 h(-D)/C_+(28)`. The
 band-limited function of this section certifies `1.8280782 h(-D)`, improving CQH's
 `1.837 h(-D)`. The **current** best, from the consolidated table, is
-`2/C_+(28) <= 1.8261858538`, so the certified constant is `1.8261859 h(-D)`. For
+`2/C_+(28) <= 1.8261858539`, so the certified constant is `1.8261859 h(-D)`. For
 `f(u,v) = u^2 + 27 v^2`, where `D = 108` and `h(-D) = 3`, CQH's `5.511` becomes
 `5.4786` (this section's function alone gives `5.4843`).
 
@@ -230,8 +230,14 @@ carefully and re-evaluated in mpmath; the rest are float64 only.
   the problem becomes CMS's `C(infinity)`, for which CMS (1.5) quote Gorbachev's
   `1.08185 <= C(infinity) <= 1.09769`. The LP at `B = 1` returns **1.0818063**.
 - **Regression against `EXTREMAL.md`.** The even basis at `A = 36/11`, `B = 1.7`,
-  `K = 56` returns 1.1986220 against the 1.1986243 recorded there.
-- **Consistency with the proven upper bound** 1.20995. The value sits below it.
+  `K = 56` returns 1.1986220 against the 1.1986243 recorded there. Both are
+  superseded: `A = 36/11` now has a certified 1.1991189437902487, in
+  `extra_rows.json`, from a bandwidth sweep that settled on `B = 33/10`.
+- **Consistency with the proven upper bound.** This section's `A = 28` value sits
+  below CMS's `U(28) = 1.209948`. Note that bound is specific to `A = 28`: since
+  `C_+` is non-increasing, an upper bound at one `A` transfers only to larger `A`,
+  never smaller. At `A = 36/11` the corresponding CMS bound is `U(36/11) = 1.329905`,
+  and the certified dual multiplier gives 1.212380.
 - **Monotonicity, for free.** CMS prove `C_+(A)` is non-increasing in `A`. The eight
   table rows were each solved independently and come out strictly decreasing:
   1.297783, 1.174643, 1.141443, 1.125667, 1.106385, 1.097404, 1.094043, 1.091689.
@@ -571,7 +577,7 @@ winning published column.
 | 23.0 | 1.0845 | 1.0897 | **1.0905** | 1.0905 | PW | 1.0968809003 | 1.0979658741 | **1.0979658741** | +0.6846% | SDP |
 | 23.5 | 1.0841 | 1.0893 | **1.0903** | 1.0903 | PW | 1.0965619548 | 1.0976871718 | **1.0976871718** | +0.6775% | SDP |
 | 24.0 | 1.0838 | 1.0890 | **1.0901** | 1.0901 | PW | 1.0962555580 | 1.0973558414 | **1.0973558414** | +0.6656% | SDP |
-| 24.5 | 1.0835 | 1.0886 | **1.0900** | 1.0900 | PW | 1.0959631055 | 1.0972829464 | **1.0972829464** | +0.6689% | SDP |
+| 24.5 | 1.0835 | 1.0886 | **1.0900** | 1.0900 | PW | 1.0959631055 | 1.0972829464 | **1.0972829464** | +0.6682% | SDP |
 | 25.0 | 1.0832 | 1.0883 | **1.0898** | 1.0898 | PW | 1.0956811707 | 1.0970508460 | **1.0970508460** | +0.6653% | SDP |
 | 25.5 | 1.0830 | 1.0880 | **1.0896** | 1.0896 | PW | 1.0954114575 | 1.0967874328 | **1.0967874328** | +0.6596% | SDP |
 | 26.0 | 1.0827 | 1.0876 | **1.0895** | 1.0895 | PW | 1.0951512934 | 1.0963380206 | **1.0963380206** | +0.6276% | SDP |

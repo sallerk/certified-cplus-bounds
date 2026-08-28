@@ -227,9 +227,10 @@ this round. `CMS U(A)` is `min{1.2/(1 - 0.222/(A-1)), 2}`.
 the lower bound. `slack removed` is `(CMS - new upper)/(CMS - lower)`: the
 fraction of the old interval this round cut away.
 
-**The number the task asked for.** At `A = 28` the gap was `10.59%` and is now
-`1.16%`, so **at least 88.9% of it was slack in the upper bound**. "At least",
-because the upper bound is still falling in `T`.
+**The number the task asked for.** At `A = 28` the gap was `10.59%` and this round
+cut it to `1.16%`, so **at least 88.9% of it was slack in the upper bound**. "At
+least", because the upper bound was still falling in `T`. (Later rounds took the
+bracket to `0.95%`; see the final table at the end of this file.)
 
 ## 7. Certification in ARB
 
