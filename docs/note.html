@@ -72,8 +72,9 @@ a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-o
 <div class="stats">
   <div class="stat"><span class="v">68/68</span><span class="k">rows improved</span></div>
   <div class="stat"><span class="v">+0.64%</span><span class="k">mean margin</span></div>
-  <div class="stat"><span class="v">1.8262</span><span class="k">prime-gap constant</span></div>
-  <div class="stat"><span class="v">0.95%</span><span class="k">bracket at A=28</span></div>
+  <div class="stat"><span class="v">0.8340</span><span class="k">prime gap, RH</span></div>
+  <div class="stat"><span class="v">1.8262</span><span class="k">quadratic forms, GRH</span></div>
+  <div class="stat"><span class="v">0.93%</span><span class="k">mean bracket</span></div>
 </div>
 
 <section>
@@ -81,11 +82,15 @@ a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-o
 <p>Carneiro, Milinovich and Soundararajan (<a href="https://arxiv.org/abs/1708.04122">arXiv:1708.04122</a>,
 Extremal Problem&nbsp;2) define, for a parameter <code>A</code>,</p>
 <div class="eq">C&#8330;(A) = sup [ F(0) &minus; A &int;<sub>|t|&gt;1</sub> (F&#770;(t))&#8330; dt ] / &Vert;F&Vert;&#8321;</div>
-<p>the supremum over even, continuous, real <code>F</code> in <code>L&sup1;(&reals;)</code>. Larger is
-better: a bigger <code>C&#8330;</code> gives a smaller constant in a bound on gaps between primes.
-Chirre and Quesada-Herrera (<a href="https://arxiv.org/abs/2012.07781">arXiv:2012.07781</a>)
-tabulate lower bounds at 68 values of <code>A</code>, and use <code>A&nbsp;=&nbsp;28</code> for primes
-represented by a binary quadratic form.</p>
+<p>the supremum over even, continuous, real <code>F</code> in <code>L&sup1;(&reals;)</code>, for
+<code>1 &le; A &lt; &infin;</code>. Larger is better: a bigger <code>C&#8330;</code> gives a smaller
+constant in a bound on gaps between primes. Chirre and Quesada-Herrera
+(<a href="https://arxiv.org/abs/2012.07781">arXiv:2012.07781</a>) tabulate lower bounds at 68
+values of <code>A</code>.</p>
+<p><code>A</code> is not a free parameter. It is fixed by the application: how many primes can
+crowd into a short interval. Three values carry the results below &mdash;
+<code>36/11</code> for ordinary primes, <code>4</code> for primes in an arithmetic progression,
+<code>28</code> for primes represented by a binary quadratic form.</p>
 <p>Any admissible <code>F</code> gives a valid lower bound. So the whole game is finding a good
 test function &mdash; and then <em>proving</em> what it is worth.</p>
 </section>
@@ -134,7 +139,7 @@ refuses a target below the true supremum, reporting exactly where it fails.</p>
 <p>A lower bound alone says nothing about how close to optimal it is. Optimizing the dual side
 numerically &mdash; the same duality CMS use analytically &mdash; gives certified <em>upper</em>
 bounds:</p>
-<div class="eq">1.0951787824934853 &le; C&#8330;(28) &le; 1.105630</div>
+<div class="eq">1.0951787824934853 &le; C&#8330;(28) &le; 1.10563</div>
 <p>a bracket of <strong>0.95%</strong>, against roughly 10.6% from the previously published upper
 bound. So the bulk of the apparent gap was slack in the upper bound, not room in the lower one.
 Every one of the 68 rows now carries its own certified upper bound &mdash; mean bracket
@@ -155,112 +160,131 @@ each row.</p>
 <div class="tw"><table>
 <thead><tr><th>A</th><th>record</th><th>col</th><th>LP (certified)</th><th>SDP (certified)</th><th>won</th><th>margin</th></tr></thead>
 <tbody>
-<tr><td class="n">1.0</td><td class="n">1.9602</td><td class="src">PW</td><td class="n">1.9797820564</td><td class="n win">1.9988807616</td><td class="src">SDP</td><td class="n gain">+1.9733%</td></tr>
+<tr><td class="n">1</td><td class="n">1.9602</td><td class="src">PW</td><td class="n">1.9797820564</td><td class="n win">1.9988807616</td><td class="src">SDP</td><td class="n gain">+1.9733%</td></tr>
 <tr><td class="n">1.5</td><td class="n">1.4089</td><td class="src">F122</td><td class="n win">1.4127418167</td><td class="n">1.4124486135</td><td class="src">LP</td><td class="n gain">+0.2727%</td></tr>
-<tr><td class="n">2.0</td><td class="n">1.2933</td><td class="src">F122</td><td class="n win">1.2987479784</td><td class="n">1.2980200113</td><td class="src">LP</td><td class="n gain">+0.4212%</td></tr>
+<tr><td class="n">2</td><td class="n">1.2933</td><td class="src">F122</td><td class="n win">1.2987479784</td><td class="n">1.2980200113</td><td class="src">LP</td><td class="n gain">+0.4212%</td></tr>
 <tr><td class="n">2.5</td><td class="n">1.2378</td><td class="src">F122</td><td class="n win">1.2441416449</td><td class="n">1.2438715799</td><td class="src">LP</td><td class="n gain">+0.5123%</td></tr>
-<tr><td class="n">3.0</td><td class="n">1.2049</td><td class="src">F122</td><td class="n win">1.2117900400</td><td class="n">1.2112987671</td><td class="src">LP</td><td class="n gain">+0.5718%</td></tr>
-<tr><td class="n">3.5</td><td class="n">1.1830</td><td class="src">F122</td><td class="n win">1.1903272644</td><td class="n">1.1900058235</td><td class="src">LP</td><td class="n gain">+0.6194%</td></tr>
-<tr><td class="n">4.0</td><td class="n">1.17233</td><td class="src">CPdL</td><td class="n win">1.1750163119</td><td class="n">1.1746461035</td><td class="src">LP</td><td class="n gain">+0.2291%</td></tr>
+<tr><td class="n">3</td><td class="n">1.2049</td><td class="src">F122</td><td class="n win">1.2117900400</td><td class="n">1.2112987671</td><td class="src">LP</td><td class="n gain">+0.5718%</td></tr>
+<tr><td class="n">3.5</td><td class="n">1.183</td><td class="src">F122</td><td class="n win">1.1903272644</td><td class="n">1.1900058235</td><td class="src">LP</td><td class="n gain">+0.6194%</td></tr>
+<tr><td class="n">4</td><td class="n">1.17233</td><td class="src">CPdL</td><td class="n win">1.1750163119</td><td class="n">1.1746461035</td><td class="src">LP</td><td class="n gain">+0.2291%</td></tr>
 <tr><td class="n">4.5</td><td class="n">1.1555</td><td class="src">F122</td><td class="n win">1.1635357948</td><td class="n">1.1630859606</td><td class="src">LP</td><td class="n gain">+0.6954%</td></tr>
-<tr><td class="n">5.0</td><td class="n">1.1467</td><td class="src">F122</td><td class="n win">1.1545963838</td><td class="n">1.1542845477</td><td class="src">LP</td><td class="n gain">+0.6886%</td></tr>
+<tr><td class="n">5</td><td class="n">1.1467</td><td class="src">F122</td><td class="n win">1.1545963838</td><td class="n">1.1542845477</td><td class="src">LP</td><td class="n gain">+0.6886%</td></tr>
 <tr><td class="n">5.5</td><td class="n">1.1396</td><td class="src">F122</td><td class="n win">1.1474479961</td><td class="n">1.1471450899</td><td class="src">LP</td><td class="n gain">+0.6887%</td></tr>
-<tr><td class="n">6.0</td><td class="n">1.1339</td><td class="src">F122</td><td class="n win">1.1415894489</td><td class="n">1.1412930987</td><td class="src">LP</td><td class="n gain">+0.6781%</td></tr>
+<tr><td class="n">6</td><td class="n">1.1339</td><td class="src">F122</td><td class="n win">1.1415894489</td><td class="n">1.1412930987</td><td class="src">LP</td><td class="n gain">+0.6781%</td></tr>
 <tr><td class="n">6.5</td><td class="n">1.1294</td><td class="src">F122</td><td class="n win">1.1366961911</td><td class="n">1.1362111397</td><td class="src">LP</td><td class="n gain">+0.6460%</td></tr>
-<tr><td class="n">7.0</td><td class="n">1.1255</td><td class="src">F122</td><td class="n win">1.1325541012</td><td class="n">1.1321691877</td><td class="src">LP</td><td class="n gain">+0.6268%</td></tr>
+<tr><td class="n">7</td><td class="n">1.1255</td><td class="src">F122</td><td class="n win">1.1325541012</td><td class="n">1.1321691877</td><td class="src">LP</td><td class="n gain">+0.6268%</td></tr>
 <tr><td class="n">7.5</td><td class="n">1.1222</td><td class="src">F122</td><td class="n win">1.1290017018</td><td class="n">1.1285293311</td><td class="src">LP</td><td class="n gain">+0.6061%</td></tr>
-<tr><td class="n">8.0</td><td class="n">1.1192</td><td class="src">F122</td><td class="n win">1.1259220825</td><td class="n">1.1255066697</td><td class="src">LP</td><td class="n gain">+0.6006%</td></tr>
+<tr><td class="n">8</td><td class="n">1.1192</td><td class="src">F122</td><td class="n win">1.1259220825</td><td class="n">1.1255066697</td><td class="src">LP</td><td class="n gain">+0.6006%</td></tr>
 <tr><td class="n">8.5</td><td class="n">1.1166</td><td class="src">F122</td><td class="n win">1.1232177322</td><td class="n">1.1230465945</td><td class="src">LP</td><td class="n gain">+0.5927%</td></tr>
-<tr><td class="n">9.0</td><td class="n">1.1142</td><td class="src">F122</td><td class="n win">1.1208381955</td><td class="n">1.1206251233</td><td class="src">LP</td><td class="n gain">+0.5958%</td></tr>
+<tr><td class="n">9</td><td class="n">1.1142</td><td class="src">F122</td><td class="n win">1.1208381955</td><td class="n">1.1206251233</td><td class="src">LP</td><td class="n gain">+0.5958%</td></tr>
 <tr><td class="n">9.5</td><td class="n">1.1121</td><td class="src">F122</td><td class="n">1.1187127980</td><td class="n win">1.1188316689</td><td class="src">SDP</td><td class="n gain">+0.6053%</td></tr>
-<tr><td class="n">10.0</td><td class="n">1.1101</td><td class="src">F122</td><td class="n">1.1168110779</td><td class="n win">1.1170610631</td><td class="src">SDP</td><td class="n gain">+0.6271%</td></tr>
+<tr><td class="n">10</td><td class="n">1.1101</td><td class="src">F122</td><td class="n">1.1168110779</td><td class="n win">1.1170610631</td><td class="src">SDP</td><td class="n gain">+0.6271%</td></tr>
 <tr><td class="n">10.5</td><td class="n">1.1084</td><td class="src">F122</td><td class="n">1.1151023320</td><td class="n win">1.1153827494</td><td class="src">SDP</td><td class="n gain">+0.6300%</td></tr>
-<tr><td class="n">11.0</td><td class="n">1.1068</td><td class="src">F122</td><td class="n">1.1135467425</td><td class="n win">1.1139221361</td><td class="src">SDP</td><td class="n gain">+0.6435%</td></tr>
+<tr><td class="n">11</td><td class="n">1.1068</td><td class="src">F122</td><td class="n">1.1135467425</td><td class="n win">1.1139221361</td><td class="src">SDP</td><td class="n gain">+0.6435%</td></tr>
 <tr><td class="n">11.5</td><td class="n">1.1054</td><td class="src">F122</td><td class="n">1.1121356078</td><td class="n win">1.1126215844</td><td class="src">SDP</td><td class="n gain">+0.6533%</td></tr>
-<tr><td class="n">12.0</td><td class="n">1.1041</td><td class="src">F122</td><td class="n">1.1108483025</td><td class="n win">1.1114469381</td><td class="src">SDP</td><td class="n gain">+0.6654%</td></tr>
-<tr><td class="n">12.5</td><td class="n">1.1030</td><td class="src">F122</td><td class="n">1.1096665167</td><td class="n win">1.1103482841</td><td class="src">SDP</td><td class="n gain">+0.6662%</td></tr>
-<tr><td class="n">13.0</td><td class="n">1.1019</td><td class="src">F122</td><td class="n">1.1085760058</td><td class="n win">1.1090110943</td><td class="src">SDP</td><td class="n gain">+0.6453%</td></tr>
+<tr><td class="n">12</td><td class="n">1.1041</td><td class="src">F122</td><td class="n">1.1108483025</td><td class="n win">1.1114469381</td><td class="src">SDP</td><td class="n gain">+0.6654%</td></tr>
+<tr><td class="n">12.5</td><td class="n">1.103</td><td class="src">F122</td><td class="n">1.1096665167</td><td class="n win">1.1103482841</td><td class="src">SDP</td><td class="n gain">+0.6662%</td></tr>
+<tr><td class="n">13</td><td class="n">1.1019</td><td class="src">F122</td><td class="n">1.1085760058</td><td class="n win">1.1090110943</td><td class="src">SDP</td><td class="n gain">+0.6453%</td></tr>
 <tr><td class="n">13.5</td><td class="n">1.1009</td><td class="src">F122</td><td class="n">1.1075637468</td><td class="n win">1.1081577614</td><td class="src">SDP</td><td class="n gain">+0.6593%</td></tr>
-<tr><td class="n">14.0</td><td class="n">1.1000</td><td class="src">F122</td><td class="n">1.1066355370</td><td class="n win">1.1073745030</td><td class="src">SDP</td><td class="n gain">+0.6704%</td></tr>
+<tr><td class="n">14</td><td class="n">1.1</td><td class="src">F122</td><td class="n">1.1066355370</td><td class="n win">1.1073745030</td><td class="src">SDP</td><td class="n gain">+0.6704%</td></tr>
 <tr><td class="n">14.5</td><td class="n">1.0992</td><td class="src">F122</td><td class="n">1.1057706814</td><td class="n win">1.1062637965</td><td class="src">SDP</td><td class="n gain">+0.6426%</td></tr>
-<tr><td class="n">15.0</td><td class="n">1.0984</td><td class="src">F122</td><td class="n">1.1049629769</td><td class="n win">1.1057244615</td><td class="src">SDP</td><td class="n gain">+0.6668%</td></tr>
+<tr><td class="n">15</td><td class="n">1.0984</td><td class="src">F122</td><td class="n">1.1049629769</td><td class="n win">1.1057244615</td><td class="src">SDP</td><td class="n gain">+0.6668%</td></tr>
 <tr><td class="n">15.5</td><td class="n">1.0976</td><td class="src">F122</td><td class="n">1.1042083383</td><td class="n win">1.1049996707</td><td class="src">SDP</td><td class="n gain">+0.6742%</td></tr>
-<tr><td class="n">16.0</td><td class="n">1.0969</td><td class="src">F122</td><td class="n">1.1035017530</td><td class="n win">1.1039744866</td><td class="src">SDP</td><td class="n gain">+0.6450%</td></tr>
+<tr><td class="n">16</td><td class="n">1.0969</td><td class="src">F122</td><td class="n">1.1035017530</td><td class="n win">1.1039744866</td><td class="src">SDP</td><td class="n gain">+0.6450%</td></tr>
 <tr><td class="n">16.5</td><td class="n">1.0962</td><td class="src">F122</td><td class="n">1.1028371068</td><td class="n win">1.1037076108</td><td class="src">SDP</td><td class="n gain">+0.6849%</td></tr>
-<tr><td class="n">17.0</td><td class="n">1.0956</td><td class="src">F122</td><td class="n">1.1022128276</td><td class="n win">1.1030960216</td><td class="src">SDP</td><td class="n gain">+0.6842%</td></tr>
-<tr><td class="n">17.5</td><td class="n">1.0950</td><td class="src">F122</td><td class="n">1.1016274568</td><td class="n win">1.1025323513</td><td class="src">SDP</td><td class="n gain">+0.6879%</td></tr>
-<tr><td class="n">18.0</td><td class="n">1.0944</td><td class="src">F122</td><td class="n">1.1010754832</td><td class="n win">1.1019911074</td><td class="src">SDP</td><td class="n gain">+0.6936%</td></tr>
+<tr><td class="n">17</td><td class="n">1.0956</td><td class="src">F122</td><td class="n">1.1022128276</td><td class="n win">1.1030960216</td><td class="src">SDP</td><td class="n gain">+0.6842%</td></tr>
+<tr><td class="n">17.5</td><td class="n">1.095</td><td class="src">F122</td><td class="n">1.1016274568</td><td class="n win">1.1025323513</td><td class="src">SDP</td><td class="n gain">+0.6879%</td></tr>
+<tr><td class="n">18</td><td class="n">1.0944</td><td class="src">F122</td><td class="n">1.1010754832</td><td class="n win">1.1019911074</td><td class="src">SDP</td><td class="n gain">+0.6936%</td></tr>
 <tr><td class="n">18.5</td><td class="n">1.0938</td><td class="src">F122</td><td class="n">1.1005552019</td><td class="n win">1.1014718646</td><td class="src">SDP</td><td class="n gain">+0.7014%</td></tr>
-<tr><td class="n">19.0</td><td class="n">1.0933</td><td class="src">F122</td><td class="n">1.1000614471</td><td class="n win">1.1010085878</td><td class="src">SDP</td><td class="n gain">+0.7051%</td></tr>
+<tr><td class="n">19</td><td class="n">1.0933</td><td class="src">F122</td><td class="n">1.1000614471</td><td class="n win">1.1010085878</td><td class="src">SDP</td><td class="n gain">+0.7051%</td></tr>
 <tr><td class="n">19.5</td><td class="n">1.0928</td><td class="src">F122</td><td class="n">1.0995912820</td><td class="n win">1.1005804499</td><td class="src">SDP</td><td class="n gain">+0.7120%</td></tr>
-<tr><td class="n">20.0</td><td class="n">1.0923</td><td class="src">F122</td><td class="n">1.0991451766</td><td class="n win">1.1000835957</td><td class="src">SDP</td><td class="n gain">+0.7126%</td></tr>
+<tr><td class="n">20</td><td class="n">1.0923</td><td class="src">F122</td><td class="n">1.0991451766</td><td class="n win">1.1000835957</td><td class="src">SDP</td><td class="n gain">+0.7126%</td></tr>
 <tr><td class="n">20.5</td><td class="n">1.0918</td><td class="src">F122</td><td class="n">1.0987203726</td><td class="n win">1.0995818248</td><td class="src">SDP</td><td class="n gain">+0.7128%</td></tr>
-<tr><td class="n">21.0</td><td class="n">1.0914</td><td class="src">F122+PW</td><td class="n">1.0983166448</td><td class="n win">1.0993840223</td><td class="src">SDP</td><td class="n gain">+0.7315%</td></tr>
+<tr><td class="n">21</td><td class="n">1.0914</td><td class="src">F122+PW</td><td class="n">1.0983166448</td><td class="n win">1.0993840223</td><td class="src">SDP</td><td class="n gain">+0.7315%</td></tr>
 <tr><td class="n">21.5</td><td class="n">1.0912</td><td class="src">PW</td><td class="n">1.0979323423</td><td class="n win">1.0990236828</td><td class="src">SDP</td><td class="n gain">+0.7170%</td></tr>
-<tr><td class="n">22.0</td><td class="n">1.0909</td><td class="src">PW</td><td class="n">1.0975661350</td><td class="n win">1.0986651015</td><td class="src">SDP</td><td class="n gain">+0.7118%</td></tr>
+<tr><td class="n">22</td><td class="n">1.0909</td><td class="src">PW</td><td class="n">1.0975661350</td><td class="n win">1.0986651015</td><td class="src">SDP</td><td class="n gain">+0.7118%</td></tr>
 <tr><td class="n">22.5</td><td class="n">1.0907</td><td class="src">PW</td><td class="n">1.0972146966</td><td class="n win">1.0982427870</td><td class="src">SDP</td><td class="n gain">+0.6916%</td></tr>
-<tr><td class="n">23.0</td><td class="n">1.0905</td><td class="src">PW</td><td class="n">1.0968809003</td><td class="n win">1.0979658741</td><td class="src">SDP</td><td class="n gain">+0.6846%</td></tr>
+<tr><td class="n">23</td><td class="n">1.0905</td><td class="src">PW</td><td class="n">1.0968809003</td><td class="n win">1.0979658741</td><td class="src">SDP</td><td class="n gain">+0.6846%</td></tr>
 <tr><td class="n">23.5</td><td class="n">1.0903</td><td class="src">PW</td><td class="n">1.0965619548</td><td class="n win">1.0976871718</td><td class="src">SDP</td><td class="n gain">+0.6775%</td></tr>
-<tr><td class="n">24.0</td><td class="n">1.0901</td><td class="src">PW</td><td class="n">1.0962555580</td><td class="n win">1.0973558414</td><td class="src">SDP</td><td class="n gain">+0.6656%</td></tr>
-<tr><td class="n">24.5</td><td class="n">1.0900</td><td class="src">PW</td><td class="n">1.0959631055</td><td class="n win">1.0972829464</td><td class="src">SDP</td><td class="n gain">+0.6682%</td></tr>
-<tr><td class="n">25.0</td><td class="n">1.0898</td><td class="src">PW</td><td class="n">1.0956811707</td><td class="n win">1.0970508460</td><td class="src">SDP</td><td class="n gain">+0.6653%</td></tr>
+<tr><td class="n">24</td><td class="n">1.0901</td><td class="src">PW</td><td class="n">1.0962555580</td><td class="n win">1.0973558414</td><td class="src">SDP</td><td class="n gain">+0.6656%</td></tr>
+<tr><td class="n">24.5</td><td class="n">1.09</td><td class="src">PW</td><td class="n">1.0959631055</td><td class="n win">1.0972829464</td><td class="src">SDP</td><td class="n gain">+0.6682%</td></tr>
+<tr><td class="n">25</td><td class="n">1.0898</td><td class="src">PW</td><td class="n">1.0956811707</td><td class="n win">1.0970508460</td><td class="src">SDP</td><td class="n gain">+0.6653%</td></tr>
 <tr><td class="n">25.5</td><td class="n">1.0896</td><td class="src">PW</td><td class="n">1.0954114575</td><td class="n win">1.0967874328</td><td class="src">SDP</td><td class="n gain">+0.6596%</td></tr>
-<tr><td class="n">26.0</td><td class="n">1.0895</td><td class="src">PW</td><td class="n">1.0951512934</td><td class="n win">1.0963380206</td><td class="src">SDP</td><td class="n gain">+0.6276%</td></tr>
+<tr><td class="n">26</td><td class="n">1.0895</td><td class="src">PW</td><td class="n">1.0951512934</td><td class="n win">1.0963380206</td><td class="src">SDP</td><td class="n gain">+0.6276%</td></tr>
 <tr><td class="n">26.5</td><td class="n">1.0893</td><td class="src">PW</td><td class="n">1.0948998987</td><td class="n win">1.0958948980</td><td class="src">SDP</td><td class="n gain">+0.6054%</td></tr>
-<tr><td class="n">27.0</td><td class="n">1.0892</td><td class="src">PW</td><td class="n">1.0946585538</td><td class="n win">1.0956153198</td><td class="src">SDP</td><td class="n gain">+0.5890%</td></tr>
-<tr><td class="n">27.5</td><td class="n">1.0890</td><td class="src">PW</td><td class="n">1.0944270345</td><td class="n win">1.0953656944</td><td class="src">SDP</td><td class="n gain">+0.5845%</td></tr>
-<tr><td class="n">28.0</td><td class="n">1.0889</td><td class="src">PW</td><td class="n">1.0942039168</td><td class="n win">1.0951787825</td><td class="src">SDP</td><td class="n gain">+0.5766%</td></tr>
+<tr><td class="n">27</td><td class="n">1.0892</td><td class="src">PW</td><td class="n">1.0946585538</td><td class="n win">1.0956153198</td><td class="src">SDP</td><td class="n gain">+0.5890%</td></tr>
+<tr><td class="n">27.5</td><td class="n">1.089</td><td class="src">PW</td><td class="n">1.0944270345</td><td class="n win">1.0953656944</td><td class="src">SDP</td><td class="n gain">+0.5845%</td></tr>
+<tr><td class="n">28</td><td class="n">1.0889</td><td class="src">PW</td><td class="n">1.0942039168</td><td class="n win">1.0951787825</td><td class="src">SDP</td><td class="n gain">+0.5766%</td></tr>
 <tr><td class="n">28.5</td><td class="n">1.0888</td><td class="src">PW</td><td class="n">1.0939880327</td><td class="n win">1.0949477092</td><td class="src">SDP</td><td class="n gain">+0.5646%</td></tr>
-<tr><td class="n">29.0</td><td class="n">1.0886</td><td class="src">PW</td><td class="n">1.0937793808</td><td class="n win">1.0947004759</td><td class="src">SDP</td><td class="n gain">+0.5604%</td></tr>
+<tr><td class="n">29</td><td class="n">1.0886</td><td class="src">PW</td><td class="n">1.0937793808</td><td class="n win">1.0947004759</td><td class="src">SDP</td><td class="n gain">+0.5604%</td></tr>
 <tr><td class="n">29.5</td><td class="n">1.0885</td><td class="src">PW</td><td class="n">1.0935770275</td><td class="n win">1.0944995281</td><td class="src">SDP</td><td class="n gain">+0.5512%</td></tr>
-<tr><td class="n">30.0</td><td class="n">1.0884</td><td class="src">PW</td><td class="n">1.0933813304</td><td class="n win">1.0943802573</td><td class="src">SDP</td><td class="n gain">+0.5495%</td></tr>
+<tr><td class="n">30</td><td class="n">1.0884</td><td class="src">PW</td><td class="n">1.0933813304</td><td class="n win">1.0943802573</td><td class="src">SDP</td><td class="n gain">+0.5495%</td></tr>
 <tr><td class="n">30.5</td><td class="n">1.0883</td><td class="src">PW</td><td class="n">1.0931914580</td><td class="n win">1.0941923325</td><td class="src">SDP</td><td class="n gain">+0.5414%</td></tr>
-<tr><td class="n">31.0</td><td class="n">1.0882</td><td class="src">PW</td><td class="n">1.0930081821</td><td class="n win">1.0941720124</td><td class="src">SDP</td><td class="n gain">+0.5488%</td></tr>
+<tr><td class="n">31</td><td class="n">1.0882</td><td class="src">PW</td><td class="n">1.0930081821</td><td class="n win">1.0941720124</td><td class="src">SDP</td><td class="n gain">+0.5488%</td></tr>
 <tr><td class="n">31.5</td><td class="n">1.0881</td><td class="src">PW</td><td class="n">1.0928307671</td><td class="n win">1.0940430535</td><td class="src">SDP</td><td class="n gain">+0.5462%</td></tr>
-<tr><td class="n">32.0</td><td class="n">1.0880</td><td class="src">PW</td><td class="n">1.0926588314</td><td class="n win">1.0938734896</td><td class="src">SDP</td><td class="n gain">+0.5398%</td></tr>
+<tr><td class="n">32</td><td class="n">1.088</td><td class="src">PW</td><td class="n">1.0926588314</td><td class="n win">1.0938734896</td><td class="src">SDP</td><td class="n gain">+0.5398%</td></tr>
 <tr><td class="n">32.5</td><td class="n">1.0879</td><td class="src">PW</td><td class="n">1.0924934508</td><td class="n win">1.0937109644</td><td class="src">SDP</td><td class="n gain">+0.5341%</td></tr>
-<tr><td class="n">33.0</td><td class="n">1.0878</td><td class="src">PW</td><td class="n">1.0923331194</td><td class="n win">1.0936208702</td><td class="src">SDP</td><td class="n gain">+0.5351%</td></tr>
+<tr><td class="n">33</td><td class="n">1.0878</td><td class="src">PW</td><td class="n">1.0923331194</td><td class="n win">1.0936208702</td><td class="src">SDP</td><td class="n gain">+0.5351%</td></tr>
 <tr><td class="n">33.5</td><td class="n">1.0877</td><td class="src">PW</td><td class="n">1.0921774255</td><td class="n win">1.0934700803</td><td class="src">SDP</td><td class="n gain">+0.5305%</td></tr>
-<tr><td class="n">34.0</td><td class="n">1.0876</td><td class="src">PW</td><td class="n">1.0920273639</td><td class="n win">1.0931156543</td><td class="src">SDP</td><td class="n gain">+0.5071%</td></tr>
+<tr><td class="n">34</td><td class="n">1.0876</td><td class="src">PW</td><td class="n">1.0920273639</td><td class="n win">1.0931156543</td><td class="src">SDP</td><td class="n gain">+0.5071%</td></tr>
 <tr><td class="n">34.5</td><td class="n">1.0875</td><td class="src">PW</td><td class="n">1.0918813665</td><td class="n win">1.0929515526</td><td class="src">SDP</td><td class="n gain">+0.5013%</td></tr>
 </tbody></table></div>
+<p class="note">Certified separately, because <code>A = 36/11</code> is not a row of Table&nbsp;1: <code>C&#8330;(36/11) &ge; 1.1991189437902487</code> against Chirre&ndash;Pereira&ndash;de&nbsp;Laat's <code>1.1965</code>, a margin of <code>+0.2189%</code>. It is kept in <code>extra_rows.json</code>.</p>
 </section>
 
 <section>
-<h2>Consequence</h2>
+<h2>Consequences</h2>
+<p>Each of the three values of <code>A</code> carries a published constant.</p>
+<p><strong>Ordinary primes, under RH.</strong> The constant is <code>1/C&#8330;(36/11)</code>:</p>
+<div class="eq">limsup (p<sub>n+1</sub> &minus; p<sub>n</sub>) / (&radic;p&#8202;log&#8202;p) &lt; 0.8340</div>
+<p>improving Chirre&ndash;Pereira&ndash;de&nbsp;Laat's <code>0.8358</code>. Monotonicity alone would
+not give this: <code>36/11 = 3.2727&hellip;</code> falls between grid points, and the bound
+inherited from <code>A = 3.5</code> yields only <code>0.8401</code>.</p>
+<p><strong>Primes represented by a binary quadratic form, under GRH.</strong> The constant is
+<code>2h(&minus;D)/C&#8330;(28)</code>:</p>
 <div class="eq">limsup (p<sub>n+1,f</sub> &minus; p<sub>n,f</sub>) / (&radic;p&#8202;log&#8202;p) &lt; 1.8261858539 &middot; h(&minus;D)</div>
-<p>improving the constant in Chirre&ndash;Quesada-Herrera's Corollary&nbsp;5, on gaps between
-primes represented by a binary quadratic form, from their printed <code>1.837 h(&minus;D)</code>.
-The constant is <code>2/C&#8330;(28)</code>; ours is <code>2/1.0951787824934853 =
-1.8261858539</code> (rounded up, as CQH round 1.83672 to 1.837). For <code>u&sup2; + 27v&sup2;</code>, where <code>h(&minus;108) = 3</code>,
+<p>improving the constant in Chirre&ndash;Quesada-Herrera's Corollary&nbsp;5 from their printed
+<code>1.837 h(&minus;D)</code>. For <code>u&sup2; + 27v&sup2;</code>, where <code>h(&minus;108) = 3</code>,
 that reads <code>5.4786</code> against <code>5.5101</code>.</p>
+<p><strong>Primes in an arithmetic progression, under GRH.</strong> The constant is
+<code>&phi;(q)/C&#8330;(4)</code>:</p>
+<div class="eq">limsup (p<sub>n+1,q,b</sub> &minus; p<sub>n,q,b</sub>) / (&radic;p&#8202;log&#8202;p) &lt; 0.851053 &middot; &phi;(q)</div>
+<p>improving Chirre&ndash;Pereira&ndash;de&nbsp;Laat's Corollary&nbsp;2, which gives
+<code>0.8531 &phi;(q)</code>, for <code>q &ge; 3</code> and <code>b</code> coprime to <code>q</code>.</p>
+<p class="note">All three constants are quoted rounded <em>up</em>, so each is genuinely implied
+by the certified bound, following the same convention as the papers being improved.</p>
 </section>
 
 <section>
 <h2>What this is not</h2>
 <ul>
 <li><strong>Not new mathematics.</strong> The extremal problem is CMS's, the constants and the
-application are Chirre&ndash;Quesada-Herrera's, and the semidefinite formulation is
-Chirre&ndash;Pereira&ndash;de&nbsp;Laat's. New here are the test functions and their
+applications are Chirre&ndash;Quesada-Herrera's and Chirre&ndash;Pereira&ndash;de&nbsp;Laat's, and
+the semidefinite formulation is theirs too. New here are the test functions and their
 certificates.</li>
+<li><strong>Not an improvement to the hard part.</strong> <code>A</code> is pinned by a sieve
+bound &mdash; for ordinary primes, <code>36/11</code>, from Iwaniec (1982). Were the conjectural
+value <code>A = 1</code> available, the same table would already give <code>0.5003</code>. Almost
+everything separating that from <code>0.8340</code> lies outside Fourier optimization.</li>
 <li><strong>The SDP does not exactly reproduce published SDP values</strong> &mdash; it lands
 4&ndash;5&times;10<sup>&minus;4</sup> low at matched degree, and the discrepancy is unexplained.
 This does not affect the bounds: the semidefinite program is only a generator of candidate
 functions, and each candidate is certified by evaluating it rigorously.</li>
 <li><span class="warn"><strong>A = 1 is not a record.</strong></span> CMS prove
 <code>C&#8330;(1) = 2</code> exactly; the certificate reaches 99.94% of it.</li>
-<li><strong>The record check is thorough but not exhaustive.</strong> Three citation indexes and
-author sweeps found no improvement since 2022, but MathSciNet, zbMATH and Google Scholar were
-unreachable, and the indexes provably undercount.</li>
+<li><strong>The record check is thorough but not exhaustive.</strong> Citation indexes, author
+sweeps and both authors' own publication listings found no improvement since 2022, but
+MathSciNet, zbMATH and Google Scholar were unreachable.</li>
 <li><strong>Certification rests on ARB's correctness</strong> &mdash; unavoidable, and shared with
 the published record it improves.</li>
 </ul>
 </section>
 
 <footer>
-<p><strong>Code, all 136 test functions and the certificates:</strong> <a href="https://github.com/sallerk/certified-cplus-bounds">github.com/sallerk/certified-cplus-bounds</a></p>
-<p>Each row is independently checkable from its own coefficient file: 136 files, 136 interval
-enclosures, two independent consolidators agreeing on all 68 rows. Regression checks reproduce
-three previously established values to every digit.</p>
+<p><strong>Code, test functions and certificates:</strong> <a href="https://github.com/sallerk/certified-cplus-bounds">github.com/sallerk/certified-cplus-bounds</a></p>
+<p>Each row is independently checkable from its own coefficient file: 133 distinct files across
+the 68 rows, each with its own interval enclosure. <code>python verify_all.py</code> re-certifies
+every one of them from scratch. This page is generated by <code>make_note.py</code> from the same
+data, so it cannot disagree with the certificates.</p>
 </footer>
 </div>

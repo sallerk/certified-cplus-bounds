@@ -34,7 +34,7 @@ gap constant by `1/C_+(4)`, and their Corollary 2 by `phi(q)/C_+(4)`. From
 `C_+(4) >= 1.1750163119`:
 
 ```
-limsup (p_{n+1,q,b} - p_{n,q,b}) / (sqrt(p) log p) < 0.851052 * phi(q)
+limsup (p_{n+1,q,b} - p_{n,q,b}) / (sqrt(p) log p) < 0.851053 * phi(q)
                                                     (previously 0.8531 * phi(q))
 ```
 
@@ -179,7 +179,8 @@ file. `A = 4` is the only row affected; their other published value,
 | `functions/lp/` | band-limited test functions, one per row |
 | `functions/sdp/` | Gaussian-times-polynomial test functions, one per row |
 | `functions/dual/` | dual multipliers, giving the upper bounds |
-| `docs/note.html` | the short note; open in a browser |
+| `docs/note.html` | the short note; open in a browser (generated -- see below) |
+| `make_note.py` | regenerates `docs/note.html` from the JSON; `--check` fails if stale |
 | `docs/EXTREMAL2.md` | full method and the complete certified table |
 | `docs/UPPER.md` | certified upper bounds, and what they say about the remaining gap |
 | `docs/RECORD_CHECK.md` | the literature check, and what could not be checked |

@@ -1,0 +1,62 @@
+<title>Certified Bounds for C+(A)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#F7F8FB; --panel:#FFFFFF; --ink:#151820; --ink-2:#454C5E; --ink-3:#767D91;
+  --rule:#DDE1EA; --rule-2:#EDEFF4; --accent:#2E4374; --accent-soft:#E8ECF6;
+  --gain:#2C6E52; --warn:#9A3B36;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --ground:#111319; --panel:#171A22; --ink:#E7E9F0; --ink-2:#A9B0C2; --ink-3:#767D91;
+  --rule:#2A2F3B; --rule-2:#20242E; --accent:#93A9DC; --accent-soft:#1D2434;
+  --gain:#6FBF95; --warn:#D98A84;
+} }
+:root[data-theme="dark"]{
+  --ground:#111319; --panel:#171A22; --ink:#E7E9F0; --ink-2:#A9B0C2; --ink-3:#767D91;
+  --rule:#2A2F3B; --rule-2:#20242E; --accent:#93A9DC; --accent-soft:#1D2434;
+  --gain:#6FBF95; --warn:#D98A84;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:Spectral,Georgia,serif;
+  font-size:17px;line-height:1.62;margin:0;padding:4rem 1.5rem 6rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:47rem;margin:0 auto;display:flex;flex-direction:column;gap:2rem}
+.eyebrow{font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:.72rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font-size:2.3rem;line-height:1.15;font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:1.28rem;font-weight:600;margin:1.6rem 0 0;text-wrap:balance;
+  padding-top:1.4rem;border-top:1px solid var(--rule)}
+p{margin:0}
+.lede{font-size:1.15rem;color:var(--ink-2);font-style:italic}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.stat{background:var(--panel);padding:1rem 1.1rem}
+.stat .v{font-family:"IBM Plex Mono",monospace;font-size:1.42rem;font-weight:500;
+  color:var(--accent);font-variant-numeric:tabular-nums;display:block}
+.stat .k{font-family:"IBM Plex Sans",sans-serif;font-size:.7rem;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-top:.3rem;display:block}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.92em;
+  background:var(--rule-2);padding:.1em .34em;border-radius:2px}
+.eq{font-family:"IBM Plex Mono",monospace;font-size:.9rem;background:var(--panel);
+  border:1px solid var(--rule);border-left:2px solid var(--accent);border-radius:2px;
+  padding:1rem 1.15rem;overflow-x:auto;line-height:1.75}
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);max-height:31rem}
+table{border-collapse:collapse;width:100%;font-family:"IBM Plex Mono",monospace;font-size:.79rem}
+th{position:sticky;top:0;background:var(--panel);border-bottom:1.5px solid var(--rule);
+  font-family:"IBM Plex Sans",sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);padding:.6rem .7rem;text-align:right;white-space:nowrap}
+th:first-child{text-align:left}
+td{padding:.34rem .7rem;border-bottom:1px solid var(--rule-2);text-align:right;
+  font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+td.n:first-child{text-align:left;color:var(--ink)}
+td.src{font-family:"IBM Plex Sans",sans-serif;font-size:.68rem;color:var(--ink-3);text-align:center}
+td.win{color:var(--ink);font-weight:500;background:var(--accent-soft)}
+td.gain{color:var(--gain)}
+ul{margin:0;padding-left:1.15rem} li{margin:.42rem 0}
+.note{color:var(--ink-2);font-size:.95rem}
+.warn{color:var(--warn)}
+footer{border-top:1px solid var(--rule);padding-top:1.2rem;color:var(--ink-3);font-size:.86rem}
+a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
