@@ -1,7 +1,8 @@
 # dual multiplier for the CMS Extremal Problem 2 constant C_+(A)
 # m = 1 on [0,1], the cells below on [1,T], 0 past T; m even.
 # C_+(A) <= sup_x |mcheck(x)|,  mcheck(x) = int e^{2 pi i x t} m(t) dt
-# 400 geometric cells (p=2.2) on [1,7]; float sup (not a proof): 1.107857282
+# 400 geometric cells (p=2.2) on [1,7]; float sup on a 1e-4 grid (not a proof): 1.107857792
+# certified in ARB: C_+(28) <= 1.1079   (certificates/cplus_dual_cert.py)
 A = 28
 T = 7
 cell 1 262147/262144 -27

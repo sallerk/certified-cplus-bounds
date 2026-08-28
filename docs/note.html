@@ -134,10 +134,12 @@ refuses a target below the true supremum, reporting exactly where it fails.</p>
 <p>A lower bound alone says nothing about how close to optimal it is. Optimizing the dual side
 numerically &mdash; the same duality CMS use analytically &mdash; gives certified <em>upper</em>
 bounds:</p>
-<div class="eq">1.0951787824934853 &le; C&#8330;(28) &le; 1.1079</div>
-<p>a bracket of <strong>1.16%</strong>, against roughly 10.6% from the previously published upper
+<div class="eq">1.0951787824934853 &le; C&#8330;(28) &le; 1.105630</div>
+<p>a bracket of <strong>0.95%</strong>, against roughly 10.6% from the previously published upper
 bound. So the bulk of the apparent gap was slack in the upper bound, not room in the lower one.
-At <code>A = 2</code> the bracket closes to under 1%.</p>
+Every one of the 68 rows now carries its own certified upper bound &mdash; mean bracket
+<strong>0.93%</strong>, widest 1.34% at <code>A = 7.5</code>. At <code>A = 1</code>, where the exact
+value <code>C&#8330;(1) = 2</code> is known, the bracket is 0.06%.</p>
 <p class="note">The duality gap is not proven, so the residual cannot be attributed to either
 side &mdash; the true value is known to lie in the interval, not where in it.</p>
 </section>

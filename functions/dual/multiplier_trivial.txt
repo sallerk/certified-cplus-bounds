@@ -1,0 +1,11 @@
+# trivial multiplier: m = 1 on [0,1], 0 outside.  Positive control.
+# mcheck(x) = 2 sin(2 pi x)/(2 pi x), so sup |mcheck| = mcheck(0) = 2 exactly.
+# Certifying 2.000001 here reproduces the known exact value C_+(1) = 2
+# (Carneiro-Milinovich-Soundararajan, arXiv:1708.04122, Theorem 2(b)).
+# A = 1 makes the clamp 1-A = 0, so the zero cells below are admissible.
+A = 1
+T = 5
+cell 1 2 0
+cell 2 3 0
+cell 3 4 0
+cell 4 5 0

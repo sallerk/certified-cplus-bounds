@@ -1,0 +1,549 @@
+{
+ "_comment": "Certified UPPER bounds on the CMS Extremal Problem 2 constant C_+(A). Each is proved by certificates/cplus_dual_cert.py on the named multiplier in functions/dual/, except A=1 which is exact (CMS Thm 2(b)). C_+ is non-increasing in A, so the bound at any A' <= A also applies at A.",
+ "bounds": {
+  "1": {
+   "ub": 2.0,
+   "src": "CMS Theorem 2(b) (exact value C_+(1)=2)",
+   "file": null,
+   "T": null,
+   "cells": 0,
+   "floatsup": 2.0
+  },
+  "1.5": {
+   "ub": 1.42213,
+   "src": "dual multiplier",
+   "file": "multiplier_A1.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.4220886505
+  },
+  "2": {
+   "ub": 1.3101,
+   "src": "dual multiplier (earlier, still best)",
+   "file": "multiplier_A2_g300.txt",
+   "T": null,
+   "cells": null,
+   "floatsup": 1.3100942864
+  },
+  "2.5": {
+   "ub": 1.25531,
+   "src": "dual multiplier",
+   "file": "multiplier_A2.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.2552743462
+  },
+  "3": {
+   "ub": 1.22417,
+   "src": "dual multiplier",
+   "file": "multiplier_A3_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.2241313568
+  },
+  "3.5": {
+   "ub": 1.20504,
+   "src": "dual multiplier",
+   "file": "multiplier_A3.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.2050040642
+  },
+  "4": {
+   "ub": 1.18889,
+   "src": "dual multiplier",
+   "file": "multiplier_A4_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1888425507
+  },
+  "4.5": {
+   "ub": 1.1771,
+   "src": "dual multiplier",
+   "file": "multiplier_A4.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1770482054
+  },
+  "5": {
+   "ub": 1.1685,
+   "src": "dual multiplier (earlier, still best)",
+   "file": "multiplier_A5_g300.txt",
+   "T": null,
+   "cells": null,
+   "floatsup": 1.1684698309
+  },
+  "5.5": {
+   "ub": 1.16158,
+   "src": "dual multiplier",
+   "file": "multiplier_A5.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1615299335
+  },
+  "6": {
+   "ub": 1.15624,
+   "src": "dual multiplier",
+   "file": "multiplier_A6_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1562071675
+  },
+  "6.5": {
+   "ub": 1.15186,
+   "src": "dual multiplier",
+   "file": "multiplier_A6.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.151815564
+  },
+  "7": {
+   "ub": 1.14756,
+   "src": "dual multiplier",
+   "file": "multiplier_A7_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1475133523
+  },
+  "7.5": {
+   "ub": 1.14409,
+   "src": "dual multiplier",
+   "file": "multiplier_A7.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1440498176
+  },
+  "8": {
+   "ub": 1.13976,
+   "src": "dual multiplier",
+   "file": "multiplier_A8_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.139722249
+  },
+  "8.5": {
+   "ub": 1.13713,
+   "src": "dual multiplier",
+   "file": "multiplier_A8.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.137075237
+  },
+  "9": {
+   "ub": 1.13497,
+   "src": "dual multiplier",
+   "file": "multiplier_A9_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.134922643
+  },
+  "9.5": {
+   "ub": 1.13317,
+   "src": "dual multiplier",
+   "file": "multiplier_A9.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1331363859
+  },
+  "10": {
+   "ub": 1.13146,
+   "src": "dual multiplier",
+   "file": "multiplier_A10_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1314300793
+  },
+  "10.5": {
+   "ub": 1.12942,
+   "src": "dual multiplier",
+   "file": "multiplier_A10.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.129396385
+  },
+  "11": {
+   "ub": 1.12008,
+   "src": "dual multiplier",
+   "file": "multiplier_A11_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1200395343
+  },
+  "11.5": {
+   "ub": 1.12147,
+   "src": "dual multiplier",
+   "file": "multiplier_A11.5_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1214116728
+  },
+  "12": {
+   "ub": 1.11927,
+   "src": "dual multiplier",
+   "file": "multiplier_A12_T11.txt",
+   "T": 11.0,
+   "cells": 300,
+   "floatsup": 1.1192134952
+  },
+  "12.5": {
+   "ub": 1.12045,
+   "src": "dual multiplier",
+   "file": "multiplier_A12.5_T11.txt",
+   "T": 11.0,
+   "cells": 300,
+   "floatsup": 1.1204126195
+  },
+  "13": {
+   "ub": 1.11896,
+   "src": "dual multiplier",
+   "file": "multiplier_A13_T11.txt",
+   "T": 11.0,
+   "cells": 300,
+   "floatsup": 1.1189011836
+  },
+  "13.5": {
+   "ub": 1.11758,
+   "src": "dual multiplier",
+   "file": "multiplier_A13.5_T11.txt",
+   "T": 11.0,
+   "cells": 300,
+   "floatsup": 1.1175241568
+  },
+  "14": {
+   "ub": 1.11619,
+   "src": "dual multiplier",
+   "file": "multiplier_A14_T9.txt",
+   "T": 9.0,
+   "cells": 300,
+   "floatsup": 1.1161305032
+  },
+  "14.5": {
+   "ub": 1.11299,
+   "src": "dual multiplier",
+   "file": "multiplier_A14.5_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1129330123
+  },
+  "15": {
+   "ub": 1.11888,
+   "src": "dual multiplier",
+   "file": "multiplier_A15_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1188466458
+  },
+  "15.5": {
+   "ub": 1.11799,
+   "src": "dual multiplier",
+   "file": "multiplier_A15.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1179483902
+  },
+  "16": {
+   "ub": 1.11699,
+   "src": "dual multiplier",
+   "file": "multiplier_A16_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1169578875
+  },
+  "16.5": {
+   "ub": 1.11702,
+   "src": "dual multiplier",
+   "file": "multiplier_A16.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1169705251
+  },
+  "17": {
+   "ub": 1.11487,
+   "src": "dual multiplier",
+   "file": "multiplier_A17_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1148295783
+  },
+  "17.5": {
+   "ub": 1.11461,
+   "src": "dual multiplier",
+   "file": "multiplier_A17.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1145577156
+  },
+  "18": {
+   "ub": 1.11465,
+   "src": "dual multiplier",
+   "file": "multiplier_A18_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1146178243
+  },
+  "18.5": {
+   "ub": 1.11429,
+   "src": "dual multiplier",
+   "file": "multiplier_A18.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1142567269
+  },
+  "19": {
+   "ub": 1.11079,
+   "src": "dual multiplier",
+   "file": "multiplier_A19_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1107405331
+  },
+  "19.5": {
+   "ub": 1.10809,
+   "src": "dual multiplier",
+   "file": "multiplier_A19.5_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1080587347
+  },
+  "20": {
+   "ub": 1.10774,
+   "src": "dual multiplier",
+   "file": "multiplier_A20_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1076945425
+  },
+  "20.5": {
+   "ub": 1.10604,
+   "src": "dual multiplier",
+   "file": "multiplier_A20.5_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1059907723
+  },
+  "21": {
+   "ub": 1.10563,
+   "src": "dual multiplier",
+   "file": "multiplier_A21_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1055794938
+  },
+  "21.5": {
+   "ub": 1.10716,
+   "src": "dual multiplier",
+   "file": "multiplier_A21.5_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1071064247
+  },
+  "22": {
+   "ub": 1.10789,
+   "src": "dual multiplier",
+   "file": "multiplier_A22_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1078686451
+  },
+  "22.5": {
+   "ub": 1.10699,
+   "src": "dual multiplier",
+   "file": "multiplier_A22.5_T13.txt",
+   "T": 13.0,
+   "cells": 300,
+   "floatsup": 1.1069647772
+  },
+  "23": {
+   "ub": 1.11399,
+   "src": "dual multiplier",
+   "file": "multiplier_A23_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1139485641
+  },
+  "23.5": {
+   "ub": 1.1155,
+   "src": "dual multiplier",
+   "file": "multiplier_A23.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1154450649
+  },
+  "24": {
+   "ub": 1.11557,
+   "src": "dual multiplier",
+   "file": "multiplier_A24_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1155220523
+  },
+  "24.5": {
+   "ub": 1.1182,
+   "src": "dual multiplier",
+   "file": "multiplier_A24.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1181554793
+  },
+  "25": {
+   "ub": 1.11661,
+   "src": "dual multiplier",
+   "file": "multiplier_A25_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.116568032
+  },
+  "25.5": {
+   "ub": 1.11283,
+   "src": "dual multiplier",
+   "file": "multiplier_A25.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1127812217
+  },
+  "26": {
+   "ub": 1.11642,
+   "src": "dual multiplier",
+   "file": "multiplier_A26_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1163708994
+  },
+  "26.5": {
+   "ub": 1.11609,
+   "src": "dual multiplier",
+   "file": "multiplier_A26.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1160485093
+  },
+  "27": {
+   "ub": 1.11538,
+   "src": "dual multiplier",
+   "file": "multiplier_A27_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1153403021
+  },
+  "27.5": {
+   "ub": 1.11555,
+   "src": "dual multiplier",
+   "file": "multiplier_A27.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1155034468
+  },
+  "28": {
+   "ub": 1.1079,
+   "src": "dual multiplier (earlier, still best)",
+   "file": "multiplier_A28_g300.txt",
+   "T": null,
+   "cells": null,
+   "floatsup": 1.1078577924
+  },
+  "28.5": {
+   "ub": 1.1155,
+   "src": "dual multiplier",
+   "file": "multiplier_A28.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1154490109
+  },
+  "29": {
+   "ub": 1.11472,
+   "src": "dual multiplier",
+   "file": "multiplier_A29_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.114682294
+  },
+  "29.5": {
+   "ub": 1.11513,
+   "src": "dual multiplier",
+   "file": "multiplier_A29.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1150942595
+  },
+  "30": {
+   "ub": 1.1148,
+   "src": "dual multiplier",
+   "file": "multiplier_A30_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1147644987
+  },
+  "30.5": {
+   "ub": 1.1136,
+   "src": "dual multiplier",
+   "file": "multiplier_A30.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1135693704
+  },
+  "31": {
+   "ub": 1.11278,
+   "src": "dual multiplier",
+   "file": "multiplier_A31_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1127378002
+  },
+  "31.5": {
+   "ub": 1.11416,
+   "src": "dual multiplier",
+   "file": "multiplier_A31.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1141234574
+  },
+  "32": {
+   "ub": 1.11138,
+   "src": "dual multiplier",
+   "file": "multiplier_A32_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1113502346
+  },
+  "32.5": {
+   "ub": 1.10966,
+   "src": "dual multiplier",
+   "file": "multiplier_A32.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1096282358
+  },
+  "33": {
+   "ub": 1.10844,
+   "src": "dual multiplier",
+   "file": "multiplier_A33_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1084156452
+  },
+  "33.5": {
+   "ub": 1.10842,
+   "src": "dual multiplier",
+   "file": "multiplier_A33.5_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1083947402
+  },
+  "34": {
+   "ub": 1.10815,
+   "src": "dual multiplier",
+   "file": "multiplier_A34_all.txt",
+   "T": 5.0,
+   "cells": 300,
+   "floatsup": 1.1081130108
+  },
+  "34.5": {
+   "ub": 1.105,
+   "src": "dual multiplier (earlier, still best)",
+   "file": "multiplier_A34.5_g300.txt",
+   "T": null,
+   "cells": null,
+   "floatsup": 1.1049623064
+  }
+ }
+}

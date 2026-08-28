@@ -17,8 +17,12 @@ The quantity is Carneiro–Milinovich–Soundararajan's **Extremal Problem 2**
 (arXiv:1708.04122, eq. 1.3):
 
 ```
-C_+(A) = sup over even real F in L^1(R), F != 0, of
+C_+(A) = sup over F in A_+, F != 0, of
          [ F(0) - A * int_{|t|>1} (Fhat(t))_+ dt ] / ||F||_1
+
+where 1 <= A < infinity and A_+ is the class of even, continuous
+F : R -> R with F in L^1(R).  The paper writes the domain of the
+integral as [-1,1]^c, which is the set |t| > 1.
 ```
 
 Two values of `A` matter here.

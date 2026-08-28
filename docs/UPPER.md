@@ -1,10 +1,14 @@
-# Four fifths of the `C_+(A)` gap was slack in the upper bound, and CMS's own dual closes it
+# Nine tenths of the `C_+(A)` gap was slack in the upper bound, and CMS's own dual closes it
 
 Every earlier round of this project pushed the **lower** bound on `C_+(A)`. This
 round attacks the **upper** bound, which nobody had touched since 2017. At
-`A = 28` the interval that had to contain `C_+(28)` was `[1.09405, 1.20995]`,
-about 10.6% wide. It is now `[1.09405, 1.1079]`, about 1.9% wide. **88.9% of
+`A = 28` the interval that had to contain `C_+(28)` was `[1.0951787825, 1.209948]`,
+about 10.5% wide. It is now `[1.0951787825, 1.105630]`, about 0.95% wide. **90.9% of
 that gap was looseness in the upper bound, not room in the lower bound.**
+
+The sections below are in the order the work happened, so the early ones quote
+weaker bounds than the final table at the end of this file. The current values
+for all 68 rows live in `upper_bounds.json`.
 
 All new upper bounds are certified in ARB ball arithmetic, the same way the
 lower bounds were.
@@ -375,9 +379,9 @@ buy is knowing how much is left: at `A = 28`, at most 1.9%.
 python cplus_dual.py 28 5 150                              # one LP, prints the float sup
 python cplus_dual_scan.py T                                # bandwidth scan at A = 28
 python cplus_dual_dump.py 28 5 150 multiplier_A28.txt      # exact-rational multiplier
-python cplus_dual_cert.py multiplier_A28.txt 1.1079        # the ARB proof (~7 s)
+python cplus_dual_cert.py multiplier_A28_g300.txt 1.1079   # the ARB proof
 python cplus_dual_cert.py multiplier_trivial.txt 2.000001  # positive control: reproduces 2
-python cplus_dual_cert.py multiplier_A28.txt 1.1140        # negative control: must FAIL
+python cplus_dual_cert.py multiplier_A28_g300.txt 1.1070   # negative control: must FAIL
 python cplus_dual_table.py 5 150 2,5,15,28,34.5            # solve + dump every row
 python cplus_dual_certall.py 2,5,15,28,34.5                # certify every row, print the table
 ```
@@ -435,3 +439,50 @@ Each is certified by `certificates/cplus_dual_cert.py` on the corresponding
 The improvement is largest where the old bound was loosest: `A = 5` and `A = 34.5`
 both had their brackets cut by about half. `A = 2` barely moved, which is consistent
 with it already being the tightest row.
+
+---
+
+## Certified upper bounds for all 68 rows
+
+The five upper bounds above were extended to the whole table. Each `A` now
+carries its own dual multiplier, certified by `cplus_dual_cert.py`; `A = 1` is
+exact (`C_+(1) = 2`, CMS Theorem 2(b)) and needs no multiplier. Because `C_+` is
+non-increasing in `A`, the reported bound at each `A` is the running minimum over
+all `A' <= A`, so a good multiplier at one `A` also tightens every larger one.
+
+That monotonicity needs no citation. In Extremal Problem 2,
+
+    C_+(A) = sup_F [ F(0) - A int_{|t|>1} (Fhat(t))_+ dt ] / ||F||_1,
+
+the penalty `int_{|t|>1} (Fhat)_+ dt` is non-negative, so for each fixed `F` the
+bracket is non-increasing in `A`.  A pointwise supremum of non-increasing functions
+is non-increasing, hence so is `A -> C_+(A)`.  This is what licenses the running
+minimum; the envelope is not an empirical observation.
+
+All 68 certificates passed on the first attempt; no row required a wider target.
+Every one was then re-verified independently from the shipped multiplier files,
+so each `ub` in `upper_bounds.json` is reproducible from the file named beside it.
+
+| A | certified lower | certified upper | bracket | upper from |
+|---|---|---|---|---|
+| 1 | 1.9988807616 | 2.000000 | 0.056% | exact |
+| 1.5 | 1.4127418167 | 1.422130 | 0.665% | A = 1.5 |
+| 2 | 1.2987479784 | 1.310100 | 0.874% | A = 2 |
+| 5 | 1.1545963838 | 1.168500 | 1.204% | A = 5 |
+| 15 | 1.1057244615 | 1.112990 | 0.657% | A = 14.5 |
+| 28 | 1.0951787825 | 1.105630 | 0.954% | A = 21 |
+| 34.5 | 1.0929515526 | 1.105000 | 1.102% | A = 34.5 |
+
+Summary over all 68 rows: mean bracket **0.932%**, widest 1.336% (`A = 7.5`),
+narrowest 0.056% (`A = 1`). The previous five-bound envelope gave a mean of
+2.945% on the 66 rows where it was defined; on those same rows the new envelope
+gives 0.949%.
+
+No row's certified lower bound exceeds its certified upper bound, so the tripwire
+in `verify_all.py` (which now reads `upper_bounds.json`) is clean across the table.
+
+**What this does and does not say.** These are bounds on `C_+(A)`, which sits in
+the *denominator* of the class-number constant, so only the *lower* bounds improve
+the published result; the upper bounds bound how much room is left. Concretely
+`C_+(28) <= 1.105630` means no test function can push `2/C_+(28)` below `1.808923`,
+so the method's floor is about `1.8089 h(-D)` against the `1.8262` reached here.

@@ -32,10 +32,17 @@ C_+(A) = sup over even, continuous, real F in L^1(R), F nonzero, of
                               ||F||_1
 ```
 
-with `Fhat(t) = integral of exp(-2*pi*i*x*t) F(x) dx`. Any admissible `F`
-gives a valid lower bound, so **a lower bound is verifiable from the test
-function alone**. That is what this package is: 136 test functions and the
-programs that evaluate them rigorously.
+with `Fhat(t) = integral of exp(-2*pi*i*x*t) F(x) dx`, and `1 <= A < infinity`.
+Any admissible `F` gives a valid lower bound at every `A`, so **a lower bound is
+verifiable from the test function alone**. That is what this package is: the test
+functions and the programs that evaluate them rigorously.
+
+Each of the 68 rows carries a band-limited and a Gaussian-times-polynomial test
+function, drawn from 133 distinct files: at `A = 23.0`, `24.5` and `31.0` the best
+certified value comes from a function found at the neighbouring `A`, which is
+legitimate precisely because an admissible `F` is valid at any `A` — the certificate
+is evaluated at the row's own `A` either way. The file name records where the
+function was found, not where it is used.
 
 ## Requirements
 
@@ -90,8 +97,9 @@ The certificates also refuse false claims. `cplus_dual_cert.py` takes a target
 and declines if it cannot prove it, reporting the subinterval where it failed:
 
 ```
-python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1079   # certifies
-python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1140   # correctly refuses
+python certificates/cplus_dual_cert.py functions/dual/multiplier_A28_g300.txt 1.1079  # certifies
+python certificates/cplus_dual_cert.py functions/dual/multiplier_A28_g300.txt 1.1070  # correctly refuses
+python certificates/cplus_dual_cert.py functions/dual/multiplier_trivial.txt 2.000001 # positive control
 ```
 
 ## Comparing against the published table
@@ -113,6 +121,7 @@ Comparing against a single fixed column would misstate the comparison on 28 rows
 | `verify_all.py` | re-certifies and checks every row; start here |
 | `final_table.json` | the consolidated results, one record per row |
 | `cqh_table1.txt` | the published records being compared against |
+| `upper_bounds.json` | certified upper bound per row, with the multiplier proving each |
 | `full_verify.txt` | log of a complete 68-row run |
 | `certificates/` | the three ARB certificate programs |
 | `functions/lp/` | band-limited test functions, one per row |
@@ -124,6 +133,13 @@ Comparing against a single fixed column would misstate the comparison on 28 rows
 | `docs/RECORD_CHECK.md` | the literature check, and what could not be checked |
 | `docs/SDP.md` | the semidefinite formulation and its calibration |
 
+The four files under `docs/` are working notes kept as an audit trail. They
+describe how the test functions were *produced*, and so refer to generation
+scripts (`cplus_final_lp.py`, `cplus_sdp.py`, `cplus_dual.py`, and others) that
+are deliberately not shipped here: this package is for *checking* the results,
+and everything needed to check them is present. Only the commands in this README
+and the `certificates/` programs are meant to be run.
+
 ## What is and is not new
 
 **None of the mathematics is new.** The extremal problem is Carneiro,
@@ -132,7 +148,7 @@ primes represented by quadratic forms are Chirre and Quesada-Herrera's. The
 semidefinite formulation is Chirre, Pereira Júnior and de Laat's. Certifying in
 ARB is what both groups already did.
 
-What is new here is only the 136 test functions and their certificates — found
+What is new here is only the test functions and their certificates — found
 by running a linear program and a semidefinite program over 100–200 coefficients
 each, in place of the hand-tuned three- and four-parameter families that produced
 the published records, and keeping whichever of the two did better on each row.

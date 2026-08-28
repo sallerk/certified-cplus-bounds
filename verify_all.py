@@ -71,7 +71,8 @@ def main():
         rows = [r for r in rows if float(r['A']) in want]
 
     rec = published_records()
-    upper = {2.0: 1.3101, 5.0: 1.1685, 15.0: 1.1189, 28.0: 1.1079, 34.5: 1.1050}
+    upper = {float(k): v['ub'] for k, v in
+             json.load(open(os.path.join(HERE, 'upper_bounds.json')))['bounds'].items()}
 
     print('%6s  %-4s  %-20s  %-12s  %-9s  %s' %
           ('A', 'via', 'certified', 'record', 'margin', 'status'))

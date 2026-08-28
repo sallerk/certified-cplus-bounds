@@ -17,7 +17,7 @@ Fhat(t) = int e^{-2 pi i x t} F(x) dx
 C_+(A) := sup_{F in A_+, F != 0}   (1/||F||_1) ( F(0) - A int_{[-1,1]^c} (Fhat(t))_+ dt )
 ```
 
-`A_+` is the class of even, continuous, real-valued `F`. `(y)_+` means `max(y, 0)`.
+`A_+` is the class of even, continuous `F : R -> R` with `F` in `L^1(R)`, and `1 <= A < infinity`. `(y)_+` means `max(y, 0)`.
 `||F||_1` means `int |F(x)| dx`. There is no sign condition and no support condition.
 Every function used below is in `L^1` and has `Fhat` in `L^1`, so it is admissible
 under either reading of the membership condition.
