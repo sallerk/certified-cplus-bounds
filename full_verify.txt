@@ -68,4 +68,7 @@
   34.0  SDP   1.0931156542681757  1.087600  +0.5071%  ok
   34.5  SDP   1.0929515526238738  1.087500  +0.5013%  ok
 
-68 row(s) checked, 0 problem(s).
+not in CQH Table 1 (certified separately):
+ 36/11  LP    1.1991189437902487  1.196500  +0.2189%  ok
+
+69 row(s) checked, 0 problem(s).

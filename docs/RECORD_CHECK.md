@@ -34,7 +34,11 @@ Three values of `A` matter here.
 | `C_+(28)` | **1.0889**, stated rigorously as `1/0.91833 = 1.0889332` | Chirre–Quesada-Herrera, *Fourier optimization and quadratic forms*, Q. J. Math. **73** (2022) 539–577, eq. (6.10)–(6.11) | gaps between primes represented by a binary quadratic form, under GRH |
 
 All three are lower bounds. Anyone can beat them by exhibiting a better test
-function; nobody has.
+function. This package does, at all three: `C_+(4) >= 1.1750163119`,
+`C_+(36/11) >= 1.1991189437902487` and `C_+(28) >= 1.0951787825`, each certified
+in ARB. The `36/11` row is not part of CQH Table 1 and is kept in
+`extra_rows.json`; it lowers the ordinary-prime gap constant from `0.8358` to
+`0.8340` under RH.
 
 `C_+(4)` is also the `J(F)` of CMS eq. (6.11) — their `22/25 = 0.88` interval for
 ordinary primes comes from `A = 4` — but for ordinary primes that route was

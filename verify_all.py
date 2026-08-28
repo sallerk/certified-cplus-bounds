@@ -108,7 +108,36 @@ def main():
               (A, method, got, rec[A], 100 * (got / rec[A] - 1),
                'ok' if not notes else ' | '.join(notes)))
 
-    print('\n%d row(s) checked, %d problem(s).' % (len(rows), bad))
+    nrow = len(rows)
+
+    # Rows at values of A outside CQH Table 1. Kept out of final_table.json so
+    # the 68-row statistics stay comparable with the published table, but still
+    # checked here.
+    if not args:
+        extra = json.load(open(os.path.join(HERE, 'extra_rows.json')))['rows']
+        if extra:
+            print('\nnot in CQH Table 1 (certified separately):')
+        for e in extra:
+            got = run('cplus_certA.py', [resolve(e['lp_file'])])
+            nrow += 1
+            if got is None:
+                print('%6s  %-4s  %-20s' % (e['A'], 'LP', 'CERTIFICATE FAILED'))
+                bad += 1
+                continue
+            notes = []
+            if abs(got - float(e['certified'])) > 5e-13:
+                notes.append('differs from extra_rows.json (%.16f)'
+                             % float(e['certified']))
+                bad += 1
+            if got <= float(e['record']):
+                notes.append('DOES NOT BEAT RECORD')
+                bad += 1
+            print('%6s  %-4s  %.16f  %.6f  %+.4f%%  %s' %
+                  (e['A'], 'LP', got, float(e['record']),
+                   100 * (got / float(e['record']) - 1),
+                   'ok' if not notes else ' | '.join(notes)))
+
+    print('\n%d row(s) checked, %d problem(s).' % (nrow, bad))
     return 1 if bad else 0
 
 

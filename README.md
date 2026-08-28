@@ -31,12 +31,25 @@ limsup (p_{n+1,q,b} - p_{n,q,b}) / (sqrt(p) log p) < 0.851052 * phi(q)
 
 under GRH, for q >= 3 and b coprime to q.
 
-Two things this does **not** say. It is not the ordinary-prime constant: that
-route runs through `C_+(36/11)`, where Chirre–Pereira–de Laat have `1.1965` and
-give `0.8358`. `36/11 = 3.2727...` is not a row of Table 1, and monotonicity from
-`A = 3.5` only yields `0.8401`, which is weaker — so nothing here improves it.
-And CMS's own `22/25 = 0.88` in their eq. (6.16), which does come from `A = 4`,
-was already superseded by that `0.8358`.
+The ordinary-prime constant runs through a third value, `A = 36/11`, which is
+not a row of Table 1. Solving there directly gives a certified
+
+```
+C_+(36/11) >= 1.1991189437902487        (Chirre-Pereira-de Laat: 1.1965)
+```
+
+and hence, under RH,
+
+```
+limsup (p_{n+1} - p_n) / (sqrt(p_n) log p_n) < 0.8340      (previously 0.8358)
+```
+
+This row is in `extra_rows.json` rather than `final_table.json`, so it does not
+enter the 68-row statistics, but `verify_all.py` certifies it too. Note that
+monotonicity alone would not have given it: `36/11 = 3.2727...` sits between grid
+points, and the bound inherited from `A = 3.5` yields only `0.8401`. CMS's own
+`22/25 = 0.88` in their eq. (6.16) comes from `A = 4` and was already superseded
+by the `36/11` route.
 
 ## The problem
 
@@ -150,6 +163,7 @@ file. `A = 4` is the only row affected; their other published value,
 | `final_table.json` | the consolidated results, one record per row |
 | `cqh_table1.txt` | the published records being compared against |
 | `external_records.json` | published values from outside Table 1 that beat it (currently `A = 4`) |
+| `extra_rows.json` | certified rows at values of `A` outside Table 1 (currently `36/11`) |
 | `upper_bounds.json` | certified upper bound per row, with the multiplier proving each |
 | `full_verify.txt` | log of a complete 68-row run |
 | `certificates/` | the three ARB certificate programs |
