@@ -90,7 +90,7 @@ The certificates also refuse false claims. `cplus_dual_cert.py` takes a target
 and declines if it cannot prove it, reporting the subinterval where it failed:
 
 ```
-python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1136   # certifies
+python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1079   # certifies
 python certificates/cplus_dual_cert.py functions/dual/multiplier_A28.txt 1.1140   # correctly refuses
 ```
 

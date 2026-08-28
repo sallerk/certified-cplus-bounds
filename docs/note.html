@@ -73,7 +73,7 @@ a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-o
   <div class="stat"><span class="v">68/68</span><span class="k">rows improved</span></div>
   <div class="stat"><span class="v">+0.64%</span><span class="k">mean margin</span></div>
   <div class="stat"><span class="v">1.8262</span><span class="k">prime-gap constant</span></div>
-  <div class="stat"><span class="v">1.68%</span><span class="k">bracket at A=28</span></div>
+  <div class="stat"><span class="v">1.16%</span><span class="k">bracket at A=28</span></div>
 </div>
 
 <section>
@@ -134,8 +134,8 @@ refuses a target below the true supremum, reporting exactly where it fails.</p>
 <p>A lower bound alone says nothing about how close to optimal it is. Optimizing the dual side
 numerically &mdash; the same duality CMS use analytically &mdash; gives certified <em>upper</em>
 bounds:</p>
-<div class="eq">1.0951787824934853 &le; C&#8330;(28) &le; 1.1136</div>
-<p>a bracket of <strong>1.68%</strong>, against roughly 10.6% from the previously published upper
+<div class="eq">1.0951787824934853 &le; C&#8330;(28) &le; 1.1079</div>
+<p>a bracket of <strong>1.16%</strong>, against roughly 10.6% from the previously published upper
 bound. So the bulk of the apparent gap was slack in the upper bound, not room in the lower one.
 At <code>A = 2</code> the bracket closes to under 1%.</p>
 <p class="note">The duality gap is not proven, so the residual cannot be attributed to either
@@ -197,7 +197,7 @@ range. The shaded cell is the method that won each row.</p>
 <tr><td class="n">23.0</td><td class="n">1.0905</td><td class="src">PW</td><td class="n">1.0968809003</td><td class="n win">1.0979658741</td><td class="src">SDP</td><td class="n gain">+0.6846%</td></tr>
 <tr><td class="n">23.5</td><td class="n">1.0903</td><td class="src">PW</td><td class="n">1.0965619548</td><td class="n win">1.0976871718</td><td class="src">SDP</td><td class="n gain">+0.6775%</td></tr>
 <tr><td class="n">24.0</td><td class="n">1.0901</td><td class="src">PW</td><td class="n">1.0962555580</td><td class="n win">1.0973558414</td><td class="src">SDP</td><td class="n gain">+0.6656%</td></tr>
-<tr><td class="n">24.5</td><td class="n">1.0900</td><td class="src">PW</td><td class="n">1.0959631055</td><td class="n win">1.0972829464</td><td class="src">SDP</td><td class="n gain">+0.6684%</td></tr>
+<tr><td class="n">24.5</td><td class="n">1.0900</td><td class="src">PW</td><td class="n">1.0959631055</td><td class="n win">1.0972829464</td><td class="src">SDP</td><td class="n gain">+0.6689%</td></tr>
 <tr><td class="n">25.0</td><td class="n">1.0898</td><td class="src">PW</td><td class="n">1.0956811707</td><td class="n win">1.0970508460</td><td class="src">SDP</td><td class="n gain">+0.6653%</td></tr>
 <tr><td class="n">25.5</td><td class="n">1.0896</td><td class="src">PW</td><td class="n">1.0954114575</td><td class="n win">1.0967874328</td><td class="src">SDP</td><td class="n gain">+0.6596%</td></tr>
 <tr><td class="n">26.0</td><td class="n">1.0895</td><td class="src">PW</td><td class="n">1.0951512934</td><td class="n win">1.0963380206</td><td class="src">SDP</td><td class="n gain">+0.6276%</td></tr>
