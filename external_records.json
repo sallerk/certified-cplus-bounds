@@ -1,0 +1,18 @@
+{
+ "_comment": "Published lower bounds on C_+(A) from sources OTHER than Chirre-Quesada-Herrera Table 1. The record for a row is the maximum over CQH Table 1 and this file. CQH Table 1 is a comparison of two methods across a grid of A, not a claim to the best known value at every A; where a paper optimised a single A directly it can and does beat the grid.",
+ "records": {
+  "4": {
+   "value": 1.17233,
+   "source": "Chirre, Pereira Junior, de Laat, Primes in arithmetic progressions and semidefinite programming, Math. Comp. 90 (2021) 2235-2246 (arXiv:2005.02393), Theorem 1",
+   "quote": "C+(4) >= 1.17233",
+   "note": "Beats CQH Table 1's 1.1673 at this A. Their SDP was run at degree d = 90 for this single value of A."
+  }
+ },
+ "_not_applicable": {
+  "36/11": {
+   "value": 1.1965,
+   "source": "Chirre, Pereira Junior, de Laat, op. cit., Section 1",
+   "note": "36/11 = 3.2727... is not a row of CQH Table 1, whose grid is A = 1.0, 1.5, 2.0, ..., 34.5. Recorded here so the omission is deliberate rather than an oversight."
+  }
+ }
+}

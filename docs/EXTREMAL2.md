@@ -164,7 +164,11 @@ Anyone can check the claim from that file alone — that is the whole content of
 lower bound here.
 
 **The same LP against the rest of CQH's Table 1.** For each `A` the published
-record is the best of their three columns. `record` is that best; `LP` is the
+record is the best of their three columns. (At `A = 4` the best *published*
+value is not in Table 1 at all: Chirre-Pereira-de Laat optimised that single `A`
+directly and got `1.17233`. The `record` column here stays scoped to Table 1;
+the overall record used in the final table and by `verify_all.py` is the max
+over Table 1 and `external_records.json`.) `record` is that best; `LP` is the
 honest recomputed value of the best function this solver found (`cplus_table.py`).
 
 | A | F82 | F122 | PW | record | LP | ratio | B* |
@@ -526,7 +530,7 @@ winning published column.
 | 2.5 | 1.2346 | **1.2378** | 1.1972 | 1.2378 | F122 | 1.2441416449 | 1.2438715799 | **1.2441416449** | +0.5123% | LP |
 | 3.0 | 1.2025 | **1.2049** | 1.1719 | 1.2049 | F122 | 1.2117900400 | 1.2112987671 | **1.2117900400** | +0.5718% | LP |
 | 3.5 | 1.1807 | **1.1830** | 1.1555 | 1.1830 | F122 | 1.1903272644 | 1.1900058235 | **1.1903272644** | +0.6194% | LP |
-| 4.0 | 1.1653 | **1.1673** | 1.1439 | 1.1673 | F122 | 1.1750163119 | 1.1746461035 | **1.1750163119** | +0.6610% | LP |
+| 4.0 | 1.1653 | 1.1673 | 1.1439 | **1.17233** | CPdL | 1.1750163119 | 1.1746461035 | **1.1750163119** | +0.2291% | LP |
 | 4.5 | 1.1538 | **1.1555** | 1.1355 | 1.1555 | F122 | 1.1635357948 | 1.1630859606 | **1.1635357948** | +0.6954% | LP |
 | 5.0 | 1.1448 | **1.1467** | 1.1290 | 1.1467 | F122 | 1.1545963838 | 1.1542845477 | **1.1545963838** | +0.6886% | LP |
 | 5.5 | 1.1378 | **1.1396** | 1.1239 | 1.1396 | F122 | 1.1474479961 | 1.1471450899 | **1.1474479961** | +0.6887% | LP |
@@ -596,10 +600,10 @@ rows in the table            : 68
 rows certified by BOTH       : 68
 rows beating the record      : 68
 rows NOT beating it          : 0
-margin, smallest             : +0.2726%   (A = 1.5)
+margin, smallest             : +0.2291%   (A = 4.0, against CPdL)
 margin, largest              : +1.9733%   (A = 1.0)
    largest excluding A = 1   : +0.7315%   (A = 21.0)
-margin, mean over all rows   : +0.6427%
+margin, mean over all rows   : +0.6364%
 LP won the row               : 16 rows
 SDP won the row              : 52 rows
 SDP minus LP, over the rows  : -7.28e-04 to +1.91e-02

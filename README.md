@@ -19,6 +19,25 @@ The consequence for prime gaps in binary quadratic forms:
 2/C_+(28) <= 1.8261858538 * h(-D)        (previously 1.837)
 ```
 
+The `A = 4` row carries a second consequence. `C_+(4)` is the constant behind
+primes in arithmetic progressions: Chirre–Pereira–de Laat's Theorem 1 bounds the
+gap constant by `1/C_+(4)`, and their Corollary 2 by `phi(q)/C_+(4)`. From
+`C_+(4) >= 1.1750163119`:
+
+```
+limsup (p_{n+1,q,b} - p_{n,q,b}) / (sqrt(p) log p) < 0.851052 * phi(q)
+                                                    (previously 0.8531 * phi(q))
+```
+
+under GRH, for q >= 3 and b coprime to q.
+
+Two things this does **not** say. It is not the ordinary-prime constant: that
+route runs through `C_+(36/11)`, where Chirre–Pereira–de Laat have `1.1965` and
+give `0.8358`. `36/11 = 3.2727...` is not a row of Table 1, and monotonicity from
+`A = 3.5` only yields `0.8401`, which is weaker — so nothing here improves it.
+And CMS's own `22/25 = 0.88` in their eq. (6.16), which does come from `A = 4`,
+was already superseded by that `0.8358`.
+
 ## The problem
 
 Carneiro, Milinovich and Soundararajan (*Fourier optimization and prime gaps*,
@@ -114,6 +133,15 @@ column wins changes three times** — `PW` at `A = 1`, `F122` for `A = 1.5` to
 `20.5`, an exact tie at `A = 21.0`, and `PW` from `A = 21.5` to `34.5`.
 Comparing against a single fixed column would misstate the comparison on 28 rows.
 
+Table 1 is a comparison of two methods across a grid of `A`, not a claim to the
+best value known at every `A`. Where a paper optimised a single `A` directly it
+can beat the grid, and at `A = 4` one does: Chirre–Pereira–de Laat published
+`C_+(4) >= 1.17233` (Math. Comp. **90** (2021) 2235–2246, Theorem 1), above
+Table 1's `1.1673`. Such values are listed in `external_records.json`, and the
+record used here and by `verify_all.py` is the maximum over Table 1 and that
+file. `A = 4` is the only row affected; their other published value,
+`C_+(36/11) >= 1.1965`, falls between grid points.
+
 ## Files
 
 | path | contents |
@@ -121,6 +149,7 @@ Comparing against a single fixed column would misstate the comparison on 28 rows
 | `verify_all.py` | re-certifies and checks every row; start here |
 | `final_table.json` | the consolidated results, one record per row |
 | `cqh_table1.txt` | the published records being compared against |
+| `external_records.json` | published values from outside Table 1 that beat it (currently `A = 4`) |
 | `upper_bounds.json` | certified upper bound per row, with the multiplier proving each |
 | `full_verify.txt` | log of a complete 68-row run |
 | `certificates/` | the three ARB certificate programs |

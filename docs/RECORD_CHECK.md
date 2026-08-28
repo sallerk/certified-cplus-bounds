@@ -25,15 +25,24 @@ F : R -> R with F in L^1(R).  The paper writes the domain of the
 integral as [-1,1]^c, which is the set |t| > 1.
 ```
 
-Two values of `A` matter here.
+Three values of `A` matter here.
 
 | constant | published record | who, when | what it controls |
 |---|---|---|---|
-| `C_+(36/11)` | **1.1965**, stated rigorously as `1/0.8358 = 1.1964585` | Chirre–Pereira–de Laat, *Primes in arithmetic progressions and semidefinite programming*, Math. Comp. **90** (2021) 2235–2246 | gaps between ordinary primes under RH |
+| `C_+(4)` | **1.17233** | Chirre–Pereira–de Laat, *Primes in arithmetic progressions and semidefinite programming*, Math. Comp. **90** (2021) 2235–2246, Theorem 1 | gaps between primes in an arithmetic progression, under GRH; the constant is `phi(q)/C_+(4)`, giving their `0.8531 phi(q)` |
+| `C_+(36/11)` | **1.1965**, stated rigorously as `1/0.8358 = 1.1964585` | Chirre–Pereira–de Laat, op. cit., Section 1.3 | gaps between ordinary primes under RH |
 | `C_+(28)` | **1.0889**, stated rigorously as `1/0.91833 = 1.0889332` | Chirre–Quesada-Herrera, *Fourier optimization and quadratic forms*, Q. J. Math. **73** (2022) 539–577, eq. (6.10)–(6.11) | gaps between primes represented by a binary quadratic form, under GRH |
 
-Both numbers are lower bounds. Anyone can beat them by exhibiting a better test
+All three are lower bounds. Anyone can beat them by exhibiting a better test
 function; nobody has.
+
+`C_+(4)` is also the `J(F)` of CMS eq. (6.11) — their `22/25 = 0.88` interval for
+ordinary primes comes from `A = 4` — but for ordinary primes that route was
+superseded by the `36/11` one above. Of the three, only `A = 4` and `A = 28` are
+rows of CQH Table 1; `36/11 = 3.2727...` falls between grid points. **At `A = 4`
+the CPdL value exceeds anything in Table 1** (`1.1673`), so the record for that
+row is theirs, not CQH's. This is recorded in `external_records.json` and is
+applied by `verify_all.py`.
 
 ## 2. How I searched
 

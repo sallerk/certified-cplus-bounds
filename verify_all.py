@@ -29,8 +29,13 @@ def resolve(name):
 
 
 def published_records():
-    """Read CQH Table 1. The record for each A is the MAX of the three columns --
-    which column wins changes three times across the range."""
+    """The record for each A is the MAX of CQH Table 1's three columns and any
+    better value published elsewhere (external_records.json).
+
+    Which of CQH's three columns wins changes three times across the range. CQH
+    Table 1 is a comparison of two methods on a grid of A, not a claim to the best
+    known value at every A: at A = 4, Chirre-Pereira-de Laat optimised that single
+    A directly and published 1.17233, above Table 1's 1.1673."""
     rec = {}
     with open(os.path.join(HERE, 'cqh_table1.txt')) as fh:
         for line in fh:
@@ -41,6 +46,11 @@ def published_records():
                 except ValueError:
                     continue
                 rec[A] = max(f82, f122, pw)
+    ext = json.load(open(os.path.join(HERE, 'external_records.json')))['records']
+    for a, d in ext.items():
+        a = float(a)
+        if a in rec:
+            rec[a] = max(rec[a], float(d['value']))
     return rec
 
 
