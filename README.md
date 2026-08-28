@@ -13,11 +13,20 @@ Chirre and Quesada-Herrera. Every bound here is **certified** — computed end t
 end in interval (ball) arithmetic, so each is a proved inequality rather than a
 numerical estimate.
 
-The consequence for prime gaps in binary quadratic forms:
+The consequence for prime gaps in binary quadratic forms. With f a form of
+discriminant -D and class number h(-D), Chirre-Quesada-Herrera's (1.9) reads
+`limsup (p_{n+1,f} - p_{n,f}) / (sqrt(p_{n,f}) log p_{n,f}) < 1.837 h(-D)`, where
+their `1.837` is `2/C_+(28)`. From the bound above:
 
 ```
-2/C_+(28) <= 1.8261858538 * h(-D)        (previously 1.837)
+        p_{n+1,f} - p_{n,f}
+limsup  -------------------  <  1.8261858539 * h(-D)     (previously 1.837 * h(-D))
+        sqrt(p) * log(p)
 ```
+
+since `2/1.0951787824934853 = 1.8261858538260...`, rounded up. For the form `u^2 + 27v^2`, where
+`h(-108) = 3`, that is `5.4785575615` in place of `5.5101` -- the case stated as
+`6/C_+(28)` in Quesada-Herrera's 2024 exposition (arXiv:2411.05095, Theorem 4).
 
 The `A = 4` row carries a second consequence. `C_+(4)` is the constant behind
 primes in arithmetic progressions: Chirre–Pereira–de Laat's Theorem 1 bounds the

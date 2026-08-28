@@ -124,17 +124,35 @@ At `A = 28` the SDP column is already 0.2% behind.
 
 1. **`C_+(28) >= 1.0889331722` (Chirre–Quesada-Herrera, 2022) is still the published
    record.** No improvement found anywhere in 2022–2026. This project's certified
-   `C_+(28) >= 1.0940451158772697` beats it by 0.469%, and the claim to have beaten
+   `C_+(28) >= 1.0951787824934853` beats it by 0.5766%, and the claim to have beaten
    the record stands.
 
 2. **`C_+(36/11) >= 1.1964585` (Chirre–Pereira–de Laat, 2021) is still the published
    record.** No improvement found. A November 2024 survey calls it "still the best
    approach to date", and a 2026 *Monthly* article quotes the older, weaker CMS
-   constant. This project's `EXTREMAL.md` value 1.1986243 beats it by 0.18%.
+   constant. This project's certified `C_+(36/11) >= 1.1991189437902487`, in
+   `extra_rows.json`, beats it by 0.2189%.
 
-3. **`C_+(A)` has not been improved at any other value of `A` either.** The best
-   published value for each row of CQH's Table 1 is still the maximum of that row's
-   three columns, which is what `weil-form/cqh_table1.txt` now records.
+2a. **Checked directly against the authors' own publication lists.** Andrés Chirre's
+   research page and Emily Quesada-Herrera's arXiv author listing were read in full
+   (see Sources). Neither lists any paper after the two above that revisits
+   `C_+(A)`. The decisive item is Quesada-Herrera's November 2024 exposition
+   *Fourier optimization and consequences of the generalized Riemann hypothesis*
+   (arXiv:2411.05095): its Theorem 4 still states `C_+(28) >= 1.0889`, and its
+   Section 4 still poses good lower bounds for `C_+(36/11)` as the open target.
+   An author restating the 2022 value in 2024 is stronger evidence than an absence
+   of search hits. It also confirms the two reductions used here: the ordinary-prime
+   constant is `C_+(36/11)^{-1}`, and the quadratic-form constant is `2h(-D)/C_+(28)`,
+   written there as `6/C_+(28)` for `u^2 + 27v^2`, where `h(-108) = 3`.
+
+3. **`C_+(A)` has not been improved at any other value of `A` since 2022.** For
+   66 of the 68 rows the best published value is the maximum of that row's three
+   columns in `cqh_table1.txt`. Two rows are not: `A = 1`, where CMS Theorem 2(b)
+   gives the exact `C_+(1) = 2`, and `A = 4`, where Chirre-Pereira-de Laat's
+   Theorem 1 gives `1.17233`, above Table 1's `1.1673`. Table 1 compares two methods
+   across a grid; it is not a claim to the best value at every `A`, and a paper that
+   optimises one `A` directly can beat it. The `A = 4` case is recorded in
+   `external_records.json` and applied by `verify_all.py`.
 
 4. **The prime-gap constant `1.837 h(-D)` for binary quadratic forms has not been
    improved** by anyone. It is `2/C_+(28)`, so any improvement would have had to come
@@ -224,6 +242,12 @@ Primary:
 * Chirre, Pereira Júnior, de Laat, *Primes in arithmetic progressions and semidefinite
   programming*, arXiv:2005.02393, Math. Comp. **90** (2021) 2235–2246.
   <https://arxiv.org/abs/2005.02393> — DOI `10.1090/mcom/3638`
+
+Author publication lists, read in full to confirm nothing later exists:
+
+* Chirre, research page. <https://sites.google.com/view/andreschirre/research>
+* Quesada-Herrera, arXiv author listing.
+  <https://arxiv.org/search/math?searchtype=author&query=Quesada-Herrera,+E>
 
 The two surveys that pin the dates:
 
